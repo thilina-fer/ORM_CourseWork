@@ -102,11 +102,6 @@ public class StudentDAOImpl implements StudentDAO {
        }
     }
 
-
-
-
-
-
     @Override
     public List<String> getAllIds() throws SQLException {
         return List.of();
