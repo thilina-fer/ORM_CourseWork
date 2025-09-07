@@ -207,7 +207,7 @@
                             <children>
                                 <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                     <center>
-                                        <Label text="Student Details" textFill="#7209b7" BorderPane.alignment="CENTER">
+                                        <Label text="Instructor Details" textFill="#7209b7" BorderPane.alignment="CENTER">
                                             <font>
                                                 <Font name="Bookman Old Style Bold" size="32.0" />
                                             </font>
