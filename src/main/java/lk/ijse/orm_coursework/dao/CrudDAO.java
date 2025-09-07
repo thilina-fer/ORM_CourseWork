@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public interface CrudDAO<T> extends StudentDAO {
+public interface CrudDAO<T> extends SuperDAO {
     List<T> getAll() throws SQLException;
 
     String getLastId() throws SQLException;
