@@ -15,5 +15,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="hibernate.current_session_context_class">thread</property>
+
+        <mapping class="lk.ijse.orm_coursework.entity.Instructor"/>
     </session-factory>
 </hibernate-configuration>

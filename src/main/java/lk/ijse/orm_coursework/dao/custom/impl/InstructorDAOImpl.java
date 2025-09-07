@@ -91,7 +91,7 @@ public class InstructorDAOImpl implements InstructorDAO {
     public String getLastId() throws SQLException {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<String> query = session.createQuery("SELECT instructor.id FROM Instructor instructor ORDER BY instructor.id DESC",
+            Query<String> query = session.createQuery("SELECT ins.id FROM Instructor ins ORDER BY ins.id DESC",
                     String.class).setMaxResults(1);
             List<String> studentList = query.list();
             if (studentList.isEmpty()) {
