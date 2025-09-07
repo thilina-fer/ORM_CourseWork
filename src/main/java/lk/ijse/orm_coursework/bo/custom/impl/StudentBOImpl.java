@@ -60,23 +60,24 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean deleteStudent(String id) throws InUseException, Exception {
-        Optional<Student> optional = studentDAO.findById(id);
-        if (optional.isEmpty()) {
-            throw new NotFoundException("Student Not Found");
-        }
-        try {
-            boolean delete = studentDAO.delete(id);
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+//        Optional<Student> optional = studentDAO.findById(id);
+//        if (optional.isEmpty()) {
+//            throw new NotFoundException("Student Not Found");
+//        }
+//        try {
+//            studentDAO.delete(id);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return false;
+//        }
+//        return true;
+        return studentDAO.delete(id);
     }
 
     @Override
     public String getNextId() throws SQLException {
        String lastId = studentDAO.getLastId();
-       char tableChar = 'C';
+       char tableChar = 'S';
        if (lastId != null){
            String lastIdNumberString = lastId.substring(1);
            int lastIdNumber = Integer.parseInt(lastIdNumberString);

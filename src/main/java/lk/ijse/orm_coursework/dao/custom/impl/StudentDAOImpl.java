@@ -71,7 +71,7 @@ public class StudentDAOImpl implements StudentDAO {
         try{
             Student student = session.get(Student.class,id);
             if (student != null){
-                session.refresh(student);
+                session.remove(student);
                 transaction.commit();
                 return true;
             }
@@ -114,6 +114,12 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Optional<Student> findById(String id) throws SQLException {
-        return Optional.empty();
+        Session session = factoryConfiguration.getSession();
+        try {
+            Student student = session.get(Student.class, id);
+            return Optional.ofNullable(student);
+        } finally {
+            session.close();
+        }
     }
 }

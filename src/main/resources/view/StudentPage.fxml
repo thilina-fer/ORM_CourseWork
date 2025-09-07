@@ -48,7 +48,7 @@
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblCustomerId" prefHeight="62.0" prefWidth="126.0" text="01">
+                        <Label fx:id="lblStudentId" prefHeight="62.0" prefWidth="126.0" text="01">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
@@ -174,7 +174,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpadateOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-radius: 20px; -fx-background-color: linear-gradient(to right, #00b09b, #96c93d);" text="Update">
+                              <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-radius: 20px; -fx-background-color: linear-gradient(to right, #00b09b, #96c93d);" text="Update">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
@@ -234,7 +234,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <TableView fx:id="tblStudent" prefHeight="589.0" prefWidth="778.0" stylesheets="@../styles/tableView.css">
+                        <TableView fx:id="tblStudent" onMouseClicked="#onClickTable" prefHeight="589.0" prefWidth="778.0" stylesheets="@../styles/tableView.css">
                           <columns>
                             <TableColumn fx:id="colId" prefWidth="75.0" text="Student Id" />
                             <TableColumn fx:id="colFirstName" prefWidth="75.0" text="First name" />
