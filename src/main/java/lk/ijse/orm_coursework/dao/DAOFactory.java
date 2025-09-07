@@ -1,6 +1,7 @@
 package lk.ijse.orm_coursework.dao;
 
 import lk.ijse.orm_coursework.dao.custom.StudentDAO;
+import lk.ijse.orm_coursework.dao.custom.impl.InstructorDAOImpl;
 import lk.ijse.orm_coursework.dao.custom.impl.StudentDAOImpl;
 
 public class DAOFactory {
@@ -14,6 +15,7 @@ public class DAOFactory {
     public <T extends SuperDAO> T getDAO(DAOTypes daoTypes) {
         return switch (daoTypes) {
             case STUDENT -> (T) new StudentDAOImpl();
+            case INSTRUCTOR ->  (T) new InstructorDAOImpl();
         };
     }
 }

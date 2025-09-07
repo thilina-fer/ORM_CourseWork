@@ -17,7 +17,4 @@ public interface CrudDAO<T> extends SuperDAO {
 
     boolean delete(String id) throws SQLException;
 
-    List<String> getAllIds() throws SQLException;
-
-    Optional<T> findById(String id) throws SQLException;
 }
