@@ -25,6 +25,7 @@ public class StudentDAOImpl implements StudentDAO {
             transaction.commit();
             return true;
         }catch (Exception e){
+            e.printStackTrace();
             transaction.rollback();
             return false;
         }finally {
@@ -89,7 +90,7 @@ public class StudentDAOImpl implements StudentDAO {
     public String getLastId() throws SQLException {
        Session session = factoryConfiguration.getSession();
        try {
-           Query<String> query = session.createQuery("SELECT cus.id FROM Student cus ORDER BY cus.id DESC",
+           Query<String> query = session.createQuery("SELECT stu.id FROM Student stu ORDER BY stu.id DESC",
                    String.class).setMaxResults(1);
            List<String> studentList = query.list();
            if (studentList.isEmpty()) {
@@ -100,11 +101,6 @@ public class StudentDAOImpl implements StudentDAO {
        }finally {
            session.close();
        }
-    }
-
-    @Override
-    public List<String> getAllIds() throws SQLException {
-        return List.of();
     }
 
     @Override
