@@ -20,6 +20,7 @@ public class StudentBOImpl implements StudentBO {
 
     private final StudentDAO studentDAO = DAOFactory.getInstance().getDAO(DAOTypes.STUDENT);
     private final EntityDTOConvertor convertor = new EntityDTOConvertor();
+
     @Override
     public List<StudentDTO> getAllStudent() throws SQLException {
         List<Student> students = studentDAO.getAll();
