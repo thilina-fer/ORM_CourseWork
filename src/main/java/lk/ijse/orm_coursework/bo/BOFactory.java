@@ -21,5 +21,4 @@ public class BOFactory {
             case USER -> (Hello) new UserBOImpl();
         };
     }
-
 }
