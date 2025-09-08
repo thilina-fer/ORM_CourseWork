@@ -16,6 +16,7 @@ public class UserPageController {
     public Button btnUpdate;
     public Button btnDelete;
     public Button btnClean;
+
     public TableView tblUser;
     public TableColumn colId;
     public TableColumn colUsername;
