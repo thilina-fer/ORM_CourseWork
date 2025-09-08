@@ -2,8 +2,10 @@ package lk.ijse.orm_coursework.bo.util;
 
 import lk.ijse.orm_coursework.dto.InstructorDTO;
 import lk.ijse.orm_coursework.dto.StudentDTO;
+import lk.ijse.orm_coursework.dto.UserDTO;
 import lk.ijse.orm_coursework.entity.Instructor;
 import lk.ijse.orm_coursework.entity.Student;
+import lk.ijse.orm_coursework.entity.User;
 
 public class EntityDTOConvertor {
 
@@ -56,5 +58,25 @@ public class EntityDTOConvertor {
         instructor.setSpecialization(instructorDTO.getSpecialization());
         instructor.setAvailability(instructorDTO.getAvailability());
         return instructor;
+    }
+
+    public UserDTO getUserDTO(User user){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(user.getId());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setPassword(user.getPassword());
+        userDTO.setRole(user.getRole());
+        userDTO.setEmail(user.getEmail());
+        return userDTO;
+    }
+
+    public User getUser(UserDTO userDTO){
+        User user = new User();
+        user.setId(userDTO.getUserId());
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        user.setRole(userDTO.getRole());
+        user.setEmail(userDTO.getEmail());
+        return user;
     }
 }
