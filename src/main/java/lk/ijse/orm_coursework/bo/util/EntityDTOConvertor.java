@@ -60,7 +60,7 @@ public class EntityDTOConvertor {
         return instructor;
     }
 
-    public UserDTO getUserDTO(User user){
+    public User getUserDTO(User user){
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(user.getId());
         userDTO.setUsername(user.getUsername());
