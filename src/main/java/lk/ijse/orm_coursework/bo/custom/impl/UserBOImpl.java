@@ -22,11 +22,12 @@ public class UserBOImpl implements UserBO {
     @Override
     public List<UserDTO> getAllUser() throws SQLException {
         List<User> users = userDAO.getAll();
-        List<UserDTO> list = new ArrayList<>();
+        List<UserDTO> userDTOs = new ArrayList<>();
         for (User user : users) {
-            users.add(convertor.getUserDTO(user));
+//            users.add(convertor.getUserDTO(user));
+            userDTOs.add(convertor.getUserDTO(user));
         }
-        return list;
+        return userDTOs;
     }
 
     @Override

@@ -2,10 +2,17 @@ package lk.ijse.orm_coursework.controller;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import lk.ijse.orm_coursework.AppInitializer;
 import lk.ijse.orm_coursework.bo.BOFactory;
 import lk.ijse.orm_coursework.bo.BOTypes;
 import lk.ijse.orm_coursework.bo.custom.StudentBO;
@@ -13,6 +20,11 @@ import lk.ijse.orm_coursework.bo.exception.DuplicateException;
 import lk.ijse.orm_coursework.dto.StudentDTO;
 import lk.ijse.orm_coursework.dto.tm.StudentTM;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -60,34 +72,15 @@ public class StudentPageController implements Initializable {
         colRegDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
 
         try {
-            resetPage();
+//            resetPage();
         }catch (Exception e){
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR,"Failed to load data").show();
         }
     }
 
-    private void resetPage() throws SQLException {
-        loadNextId();
-        loadTableData();
 
-        btnSave.setDisable(false);
-        btnUpdate.setDisable(true);
-        btnDelete.setDisable(true);
 
-        txtFirstName.setText("");
-        txtLastName.setText("");
-        txtEmail.setText("");
-        txtContact.setText("");
-        txtAddress.setText("");
-        txtDOB.setText("");
-        txtRegDate.setText("");
-    }
-
-    private void loadNextId() throws SQLException {
-        String nextId = studentBO.getNextId();
-        lblStudentId.setText(nextId);
-    }
 
     private void loadTableData() throws SQLException {
         tblStudent.setItems(FXCollections.observableArrayList(
@@ -104,57 +97,7 @@ public class StudentPageController implements Initializable {
         ));
     }
 
-    public void btnSaveOncAction(ActionEvent actionEvent) {
-        String studentId = lblStudentId.getText();
-        String firstName = txtFirstName.getText();
-        String lastName = txtLastName.getText();
-        String email = txtEmail.getText();
-        String contact = txtContact.getText();
-        String address = txtAddress.getText();
-        String dob = txtDOB.getText();
-        String regDate = txtRegDate.getText();
 
-        boolean isValidEmail = email.matches(emailPattern);
-        boolean isValidPhone = contact.matches(phonePattern);
-
-        txtEmail.setStyle(txtEmail.getStyle()+";-fx-border-color: #BB25B9;");
-        txtContact.setStyle(txtContact.getStyle()+";-fx-border-color: #BB25B9;");
-
-        if (!isValidEmail) {
-            txtEmail.setStyle(txtEmail.getStyle()+";-fx-border-color: red;");
-        }
-
-        if (!isValidPhone) {
-            txtContact.setStyle(txtContact.getStyle()+";-fx-border-color: red;");
-        }
-
-        StudentDTO studentDTO = new StudentDTO(
-                studentId,
-                firstName,
-                lastName,
-                email,
-                contact,
-                address,
-                dob,
-                regDate
-        );
-
-        if (isValidEmail && isValidPhone) {
-            try {
-                studentBO.saveStudent(studentDTO);
-                resetPage();
-                new Alert(Alert.AlertType.INFORMATION, "Student Saved!").show();
-            }catch (DuplicateException e){
-                System.out.println(e.getMessage());
-                new Alert(Alert.AlertType.ERROR, "Student save failed").show();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-    }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         String studentId = lblStudentId.getText();
@@ -194,7 +137,7 @@ public class StudentPageController implements Initializable {
         if (isValidEmail && isValidPhone) {
             try {
                 studentBO.updateStudent(studentDTO);
-                resetPage();
+//                resetPage();
                 new Alert(Alert.AlertType.INFORMATION, "Student Updated!").show();
             }catch (DuplicateException e){
                 System.out.println(e.getMessage());
@@ -222,7 +165,7 @@ public class StudentPageController implements Initializable {
                 studentBO.deleteStudent(studentId);
                 tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
                 tblStudent.getSelectionModel().clearSelection();
-                resetPage();
+//                resetPage();
             }catch (Exception e){
                 e.printStackTrace();
                 new Alert(Alert.AlertType.ERROR,"Failed to delete the student").show();
@@ -233,7 +176,7 @@ public class StudentPageController implements Initializable {
     }
 
     public void btnCleanOnAction(ActionEvent actionEvent) throws SQLException {
-        resetPage();
+//        resetPage();
     }
 
     public void onClickTable(MouseEvent mouseEvent) {
@@ -251,6 +194,26 @@ public class StudentPageController implements Initializable {
             btnSave.setDisable(true);
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
+        }
+    }
+
+    public void addSStudentPageController(ActionEvent actionEvent) throws IOException {
+        try {
+
+
+            FXMLLoader loadedFxml = new FXMLLoader(getClass().getResource("/view/StydentManagePopUpPage.fxml"));
+
+            Parent parent = loadedFxml.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.initModality(Modality.APPLICATION_MODAL);
+
+            Window window = btnSave.getScene().getWindow();
+            stage.initOwner(window);
+            stage.showAndWait();
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,"Failed to open the student manage form").show();
+            e.printStackTrace();
         }
     }
     }
