@@ -1,7 +1,8 @@
 .cur-button {
-    -fx-background-color: #9370DB;
+    -fx-background-color: #B6CEB4;
     -fx-text-fill: #fff;
     -fx-font-size: 15px;
+    -fx-font-weight: bold;
     -fx-padding: 10px 10px;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
