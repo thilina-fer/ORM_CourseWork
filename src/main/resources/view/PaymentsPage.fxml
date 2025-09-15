@@ -34,7 +34,7 @@
         </BorderPane>
         <HBox layoutY="110.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="127.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);;" text="Add Student" textFill="WHITE">
+                <Button mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);;" text="Add Payments" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -51,7 +51,7 @@
         </HBox>
         <HBox layoutX="20.0" layoutY="650.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.bottomAnchor="20.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#btnDeleteOnAAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #feb47b);;" text="Delete Student" textFill="WHITE">
+                <Button mnemonicParsing="false" onAction="#btnDeleteOnAAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #feb47b);;" text="Delete Payments" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
