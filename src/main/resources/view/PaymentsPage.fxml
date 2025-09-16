@@ -18,9 +18,9 @@
     <children>
         <BorderPane layoutY="-7.0" prefHeight="200.0" prefWidth="1200.0" AnchorPane.bottomAnchor="861.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-51.0">
             <right>
-                <ImageView fitHeight="209.0" fitWidth="142.0" BorderPane.alignment="CENTER">
+                <ImageView fitHeight="259.0" fitWidth="251.0" BorderPane.alignment="CENTER">
                     <image>
-                        <Image url="@../../../../../../Downloads/bd4cd00b531bdf7315420c14d9b60d8a-removebg-preview.png" />
+                        <Image url="@../images/Green_Black_Professional_Minimal_Motion_Studio_Brand_Logo__2_-removebg-preview.png" />
                     </image>
                 </ImageView>
             </right>
@@ -51,7 +51,7 @@
         </HBox>
         <HBox layoutX="20.0" layoutY="650.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.bottomAnchor="20.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#btnDeleteOnAAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #feb47b);;" text="Delete Payments" textFill="WHITE">
+                <Button mnemonicParsing="false" onAction="#btnDeleteOnAAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #feb47b);;" text="Delete Student" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>

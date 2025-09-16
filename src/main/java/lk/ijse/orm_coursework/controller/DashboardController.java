@@ -30,7 +30,7 @@ public class DashboardController {
     }
 
     public void btnStudentOnAction(ActionEvent actionEvent) {
-        navigateTo("/view/StudentPage.fxml");
+        navigateTo("/view/StudentManagePage.fxml");
     }
 
     public void btmInstructorOnAction(ActionEvent actionEvent) {
