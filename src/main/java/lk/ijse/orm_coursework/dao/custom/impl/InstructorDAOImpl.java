@@ -2,7 +2,7 @@ package lk.ijse.orm_coursework.dao.custom.impl;
 
 import lk.ijse.orm_coursework.config.FactoryConfiguration;
 import lk.ijse.orm_coursework.dao.custom.InstructorDAO;
-import lk.ijse.orm_coursework.entity.Instructor;
+import lk.ijse.orm_coursework.entity.Instructors;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -15,17 +15,16 @@ public class InstructorDAOImpl implements InstructorDAO {
 
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
 
+
     @Override
-    public boolean save(Instructor instructor) throws SQLException {
+    public boolean save(Instructors instructors) throws Exception {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
-
-        try{
-            session.persist(instructor);
+        try {
+            session.persist(instructors);
             transaction.commit();
             return true;
         }catch (Exception e){
-            e.printStackTrace();
             transaction.rollback();
             return false;
         }finally {
@@ -34,85 +33,109 @@ public class InstructorDAOImpl implements InstructorDAO {
     }
 
     @Override
-    public List<Instructor> getAll() throws SQLException {
-        Session session = factoryConfiguration.getSession();
-
-        try{
-            Query<Instructor> query = session.createQuery("FROM Instructor", Instructor.class);
-            return query.list();
-        }finally {
-            session.close();
-        }
-    }
-
-    @Override
-    public boolean update(Instructor instructor) throws SQLException {
+    public boolean update(Instructors instructors) throws Exception {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
-
-        try{
-            session.merge(instructor);
+        try {
+            session.merge(instructors);
             transaction.commit();
-            return  true;
-
+            return true;
         }catch (Exception e){
-            if (transaction != null) transaction.rollback();
-            e.printStackTrace();
+            transaction.rollback();
             return false;
-
         }finally {
             session.close();
         }
     }
 
     @Override
-    public boolean delete(String id) throws SQLException {
+    public boolean delete(String id) throws Exception {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
-
-        try{
-            Instructor instructor = session.get(Instructor.class, id);
-            if (instructor != null) {
-                session.remove(instructor);
+        try {
+            Instructors instructors = (Instructors) session.get(Instructors.class, id);
+            if (instructors != null) {
+                session.remove(instructors);
                 transaction.commit();
                 return true;
             }
             return false;
-        }catch (Exception e){
-            if (transaction != null) transaction.rollback();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             session.close();
         }
     }
 
     @Override
-    public String getLastId() throws SQLException {
+    public List<Instructors> getAll() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<String> query = session.createQuery("SELECT ins.id FROM Instructor ins ORDER BY ins.id DESC",
-                    String.class).setMaxResults(1);
-            List<String> studentList = query.list();
-            if (studentList.isEmpty()) {
-                return null;
-
-            }
-            return studentList.get(0);
+            Query<Instructors> query = session.createQuery("from Instructors ",Instructors.class);
+            List<Instructors> instructorsList = query.list();
+            return instructorsList;
         }finally {
             session.close();
         }
     }
 
     @Override
-    public Optional<Instructor> findById(String id) throws SQLException {
+    public String getLastId() throws Exception {
         Session session = factoryConfiguration.getSession();
-
-        try{
-            Instructor instructor = session.get(Instructor.class, id);
-            return Optional.ofNullable(instructor);
-        }finally {
+        try {
+            Query<String> query = session.createQuery("SELECT i.instructor_id FROM Instructors i ORDER BY i.instructor_id DESC", String.class)
+                    .setMaxResults(1);
+            List<String> instructorsList = query.list();
+            if (instructorsList.isEmpty()) {
+                return null;
+            }
+            return instructorsList.getFirst();
+        } finally {
             session.close();
+        }
+    }
+
+
+    @Override
+    public List<String> getAllIds() throws Exception {
+        Session session = factoryConfiguration.getSession();
+        try {
+            Query<String> query = session.createQuery("SELECT i.instructor_id FROM Instructors i", String.class);
+            return query.list();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public Optional<Instructors> findById(String id) throws Exception {
+        Session session = factoryConfiguration.getSession();
+        try {
+            Instructors instructors = session.get(Instructors.class, id);
+            return Optional.ofNullable(instructors);
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public String generateNewId() {
+        String lastId = null;
+        try {
+            lastId = getLastId();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if (lastId == null) {
+            return "I-001";
+        } else {
+            int num = Integer.parseInt(lastId.split("-")[1]);
+            num++;
+            return String.format("I-%03d", num);
         }
     }
 }

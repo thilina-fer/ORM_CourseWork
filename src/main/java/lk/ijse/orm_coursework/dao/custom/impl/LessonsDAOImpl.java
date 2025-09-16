@@ -14,34 +14,6 @@ import java.util.Optional;
 public class LessonsDAOImpl implements LessonsDAO {
     private final FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
 
-    @Override
-    public List<Lessons> getAll() throws Exception {
-        Session session = factoryConfiguration.getSession();
-        try {
-            Query<Lessons> query = session.createQuery("from Lessons ",Lessons.class);
-            List<Lessons> lessonsList = query.list();
-            return lessonsList;
-        }finally {
-            session.close();
-        }
-
-    }
-
-    @Override
-    public String getLastId() throws Exception {
-        Session session = factoryConfiguration.getSession();
-        try {
-            Query<String> query = session.createQuery("SELECT l.lessonId FROM Lessons l ORDER BY l.lessonId DESC", String.class)
-                    .setMaxResults(1);
-            List<String> lessonsList = query.list();
-            if (lessonsList.isEmpty()) {
-                return null;
-            }
-            return lessonsList.getFirst();
-        } finally {
-            session.close();
-        }
-    }
 
     @Override
     public boolean save(Lessons lessons) throws Exception {
@@ -97,6 +69,37 @@ public class LessonsDAOImpl implements LessonsDAO {
             session.close();
         }
     }
+
+
+    @Override
+    public List<Lessons> getAll() throws Exception {
+        Session session = factoryConfiguration.getSession();
+        try {
+            Query<Lessons> query = session.createQuery("from Lessons ",Lessons.class);
+            List<Lessons> lessonsList = query.list();
+            return lessonsList;
+        }finally {
+            session.close();
+        }
+
+    }
+
+    @Override
+    public String getLastId() throws Exception {
+        Session session = factoryConfiguration.getSession();
+        try {
+            Query<String> query = session.createQuery("SELECT l.lessonId FROM Lessons l ORDER BY l.lessonId DESC", String.class)
+                    .setMaxResults(1);
+            List<String> lessonsList = query.list();
+            if (lessonsList.isEmpty()) {
+                return null;
+            }
+            return lessonsList.getFirst();
+        } finally {
+            session.close();
+        }
+    }
+
 
     @Override
     public List<String> getAllIds() throws Exception {
