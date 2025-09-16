@@ -1,7 +1,7 @@
 package lk.ijse.orm_coursework.dao.custom;
 
 import lk.ijse.orm_coursework.dao.CrudDAO;
-import lk.ijse.orm_coursework.dto.LessonsDTO;
+import lk.ijse.orm_coursework.entity.Lessons;
 
-public interface LessonsDAO extends CrudDAO<LessonsDTO> {
+public interface LessonsDAO extends CrudDAO<Lessons> {
 }
