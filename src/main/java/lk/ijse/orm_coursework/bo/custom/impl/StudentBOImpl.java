@@ -48,7 +48,7 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean updateStudents(StudentDTO t) throws Exception {
         Optional<Students> students = studentDAO.findById(t.getStudentId());
-        if (students.isEmpty())) {
+        if (students.isEmpty()) {
             throw new DuplicateException("Student Not Found");
         }
         return studentDAO.update(converter.getStudentsEntity(t));

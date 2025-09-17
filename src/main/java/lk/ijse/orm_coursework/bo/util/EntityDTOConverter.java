@@ -6,24 +6,24 @@ import lk.ijse.orm_coursework.entity.*;
 public class EntityDTOConverter {
     public CourseDTO getCourseDTO(Course course){
         CourseDTO dto=new CourseDTO();
-        dto.setCourse_id(course.getCourse_id());
+        dto.setCourseId(course.getCourse_id());
         dto.setCourse_name(course.getCourse_name());
         dto.setDuration(course.getDuration());
         dto.setFee(course.getFee());
         dto.setDescription(course.getDescription());
-        dto.setInstructor_id(course.getInstructor().getInstructor_id());
+        dto.setInstructorId(course.getInstructor().getInstructor_id());
         return dto;
     }
 
     public Course getCourseEntity(CourseDTO dto){
         Course course=new Course();
         Instructors instructors=new Instructors();
-        course.setCourse_id(dto.getCourse_id());
+        course.setCourse_id(dto.getCourseId());
         course.setCourse_name(dto.getCourse_name());
         course.setDuration(dto.getDuration());
         course.setFee(dto.getFee());
         course.setDescription(dto.getDescription());
-        instructors.setInstructor_id(dto.getInstructor_id());
+        instructors.setInstructor_id(dto.getInstructorId());
         course.setInstructor(instructors);
         return course;
     }
