@@ -2,18 +2,17 @@ package lk.ijse.orm_coursework.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class PaymentPOPPageController {
-
-    public TextField txtPaymentDate;
-    public TextField txtAmount;
-    public ComboBox cmbPaymentMethod;
-    public TextField txtStatus;
-    public TextField txtStudentId;
+public class InstructorPOPPageController {
     public Label lblId;
+    public TextField txtFirstName;
+    public TextField txtLastNam;
+    public TextField txtEmail;
+    public TextField txtContact;
+    public TextField txtSpecialization;
+    public TextField txtAvailability;
     public Button btnSave;
     public Button btnUpdate;
 
@@ -21,6 +20,5 @@ public class PaymentPOPPageController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-
     }
 }
