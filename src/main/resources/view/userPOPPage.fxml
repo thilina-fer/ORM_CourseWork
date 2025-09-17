@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #e9edc9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.StudentPopUpController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #e9edc9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.UserPOPPageController">
     <children>
         <VBox layoutX="76.0" layoutY="58.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <children>
@@ -18,7 +18,7 @@
                     <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000; -fx-background-radius: 5px; -fx-border-radius: 5px;" HBox.hgrow="ALWAYS">
                             <center>
-                                <Label prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
+                                <Label fx:id="lblId" prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
                                     <font>
                                         <Font name="Times New Roman" size="30.0" />
                                     </font>
