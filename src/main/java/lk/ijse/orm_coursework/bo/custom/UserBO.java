@@ -8,15 +8,20 @@ import lk.ijse.orm_coursework.dto.UserDTO;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public interface UserBO extends SuperBO {
-    List<UserDTO> getAllUser() throws SQLException;
+    List<UserDTO> getAllUsers() throws Exception;
 
-    void saveUser(UserDTO dto) throws DuplicateException, Exception;
+    String getLastUserId() throws Exception;
 
-    void updateUser(UserDTO dto) throws SQLException;
+    boolean saveUsers(UserDTO t) throws Exception;
 
-    boolean deleteUser(String id) throws InUseException, Exception;
+    boolean updateUsers(UserDTO t) throws Exception;
 
-    String getNextId() throws SQLException;
+    boolean deleteUsers(String id) throws Exception;
+
+    List<String> getAllUserIds() throws Exception;
+
+    Optional<UserDTO> findByUserId(String id) throws Exception;
 }
