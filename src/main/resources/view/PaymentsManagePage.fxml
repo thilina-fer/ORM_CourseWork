@@ -15,22 +15,6 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.PaymentsManagePageController">
     <children>
-        <BorderPane layoutY="-7.0" prefHeight="200.0" prefWidth="1200.0" AnchorPane.bottomAnchor="861.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-51.0">
-            <right>
-                <ImageView fitHeight="259.0" fitWidth="251.0" BorderPane.alignment="CENTER">
-                    <image>
-                        <Image url="@../images/Green_Black_Professional_Minimal_Motion_Studio_Brand_Logo__2_-removebg-preview.png" />
-                    </image>
-                </ImageView>
-            </right>
-            <center>
-                <Label text="Payments Details." BorderPane.alignment="CENTER">
-                    <font>
-                        <Font name="Tahoma Bold" size="25.0" />
-                    </font>
-                </Label>
-            </center>
-        </BorderPane>
         <HBox layoutY="110.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="127.0">
             <children>
                 <Button mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);;" text="Add Payments" textFill="WHITE">
@@ -72,5 +56,21 @@
                 </TableView>
             </children>
         </VBox>
+      <BorderPane layoutY="6.0" prefHeight="110.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <center>
+                <Label text="Payments Details." BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Tahoma Bold" size="25.0" />
+                    </font>
+                </Label>
+         </center>
+         <right>
+            <ImageView fitHeight="91.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../images/Green_Black_Professional_Minimal_Motion_Studio_Brand_Logo__2_-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </right>
+      </BorderPane>
     </children>
 </AnchorPane>

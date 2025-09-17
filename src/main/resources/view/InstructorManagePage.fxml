@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.InstructorManagePageController">
     <children>
         <HBox layoutY="110.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="116.0">
             <children>
@@ -56,11 +56,10 @@
                   </Label>
                </center>
                <right>
-                  <ImageView fitHeight="120.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <ImageView fitHeight="93.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                      <image>
-                        <Image url="@../images/bd4cd00b531bdf7315420c14d9b60d8a-removebg-preview%20(1).png" />
-                     </image>
-                  </ImageView>
+                        <Image url="@../images/Green_Black_Professional_Minimal_Motion_Studio_Brand_Logo__2_-removebg-preview.png" />
+                     </image></ImageView>
                </right>
             </BorderPane>
          </children>
