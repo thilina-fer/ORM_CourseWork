@@ -1,9 +1,7 @@
 package lk.ijse.orm_coursework.dao;
 
 import lk.ijse.orm_coursework.dao.custom.StudentDAO;
-import lk.ijse.orm_coursework.dao.custom.impl.InstructorDAOImpl;
-import lk.ijse.orm_coursework.dao.custom.impl.StudentDAOImpl;
-import lk.ijse.orm_coursework.dao.custom.impl.UserDAOImpl;
+import lk.ijse.orm_coursework.dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -15,9 +13,21 @@ public class DAOFactory {
 
     public <T extends SuperDAO> T getDAO(DAOTypes daoTypes) {
         return switch (daoTypes) {
-            case STUDENT -> (T) new StudentDAOImpl();
-            case INSTRUCTOR ->  (T) new InstructorDAOImpl();
+
+            case COURSE ->  (T) new CourseDAOImpl();
+
+            case INSTRUCTORS ->  (T) new InstructorDAOImpl();
+
+            case LESSONS ->  (T) new LessonsDAOImpl();
+
+            case PAYMENTS ->   (T) new PaymentsDAOImpl();
+
+            case STUDENT_COURSE_DETAILS ->  (T) new StudentCourseDetailsDAOImpl();
+
+            case STUDENTS -> (T) new StudentDAOImpl();
+
             case USER -> (T) new UserDAOImpl();
+
         };
     }
 }
