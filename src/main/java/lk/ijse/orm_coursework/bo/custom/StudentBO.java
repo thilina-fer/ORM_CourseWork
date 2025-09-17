@@ -7,15 +7,22 @@ import lk.ijse.orm_coursework.bo.exception.InUseException;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentBO extends SuperBO {
-    List<StudentDTO> getAllStudent() throws SQLException;
+    List<StudentDTO> getAllStudents() throws Exception;
 
-    void saveStudent(StudentDTO dto) throws DuplicateException, Exception;
+    String getLastStudentId() throws Exception;
 
-    void updateStudent(StudentDTO dto) throws SQLException;
+    boolean saveStudents(StudentDTO t) throws Exception;
 
-    boolean deleteStudent(String id) throws InUseException, Exception;
+    boolean updateStudents(StudentDTO t) throws Exception;
 
-    String getNextId() throws SQLException;
+    boolean deleteStudents(String id) throws Exception;
+
+    List<String> getAllStudentIds() throws Exception;
+
+    Optional<StudentDTO> findByStudentId(String id) throws Exception;
+
+    String generateNewStudentId();
 }
