@@ -78,15 +78,15 @@ public class StudentPopUpController implements Initializable {
             return;
         }
         try {
-            boolean isSaved = studentsBO.saveStudent(StudentDTO.builder()
+            boolean isSaved = studentsBO.saveStudents(StudentDTO.builder()
                     .studentId(lblStudentId.getText())
                     .firstName(firstName)
                     .lastName(lastName)
                     .email(email)
                     .phone(contact)
                     .address(address)
-                    .dob(String.valueOf(dobDate))
-                    .registrationDate(String.valueOf(regDateDate))
+                    .dob(dobDate)
+                    .registrationDate(regDateDate)
                     .build());
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Student saved successfully", ButtonType.OK).show();
@@ -142,15 +142,15 @@ public class StudentPopUpController implements Initializable {
             return;
         }
         try {
-            boolean isUpdated = studentsBO.updateStudent(StudentDTO.builder()
+            boolean isUpdated = studentsBO.updateStudents(StudentDTO.builder()
                     .studentId(lblStudentId.getText())
                     .firstName(firstName)
                     .lastName(lastName)
                     .email(email)
                     .phone(contact)
                     .address(address)
-                    .dob(String.valueOf(dobDate))
-                    .registrationDate(String.valueOf(regDateDate))
+                    .dob(dobDate)
+                    .registrationDate(regDateDate)
                     .build());
             if (isUpdated) {
                 new Alert(Alert.AlertType.INFORMATION, "Student updated successfully", ButtonType.OK).show();
@@ -165,7 +165,7 @@ public class StudentPopUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            lblStudentId.setText(studentsBO.getNextId());
+            lblStudentId.setText(studentsBO.generateNewStudentId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

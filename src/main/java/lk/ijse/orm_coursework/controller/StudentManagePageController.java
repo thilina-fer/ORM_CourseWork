@@ -59,7 +59,7 @@ public class StudentManagePageController implements Initializable {
     private void loadAllStudents() {
         try {
             tblStudent.setItems(FXCollections.observableArrayList(
-                    studentsBO.getAllStudent().stream().map(studentDTO -> new StudentTM(
+                    studentsBO.getAllStudents().stream().map(studentDTO -> new StudentTM(
                             studentDTO.getStudentId(),
                             studentDTO.getFirstName(),
                             studentDTO.getLastName(),
