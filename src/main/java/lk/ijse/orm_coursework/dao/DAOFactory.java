@@ -28,6 +28,8 @@ public class DAOFactory {
 
             case USER -> (T) new UserDAOImpl();
 
+            case QUERY -> (T) new QueryDAOImpl();
+
         };
     }
 }

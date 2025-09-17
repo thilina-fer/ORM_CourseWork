@@ -2,6 +2,7 @@ package lk.ijse.orm_coursework.bo.custom.impl;
 
 import lk.ijse.orm_coursework.bo.custom.PaymentsBO;
 import lk.ijse.orm_coursework.bo.exception.DuplicateException;
+import lk.ijse.orm_coursework.bo.exception.NotFoundException;
 import lk.ijse.orm_coursework.bo.util.EntityDTOConverter;
 import lk.ijse.orm_coursework.dao.DAOFactory;
 import lk.ijse.orm_coursework.dao.DAOTypes;
@@ -38,6 +39,9 @@ public class PaymentsBOImpl implements PaymentsBO {
         Optional<Payments> payments = paymentDAO.findById(t.getPaymentId());
         if (payments.isPresent()) {
             throw new DuplicateException("Payment already exists");
+        }
+        if (t.getStudentId() == null) {
+            throw new NotFoundException("Student id is null");
         }
         return paymentDAO.save(converter.getPaymentsEntity(t));
     }

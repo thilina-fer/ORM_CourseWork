@@ -7,5 +7,6 @@ public enum DAOTypes {
     PAYMENTS,
     STUDENT_COURSE_DETAILS,
     STUDENTS,
-    USER
+    USER,
+    QUERY
 }
