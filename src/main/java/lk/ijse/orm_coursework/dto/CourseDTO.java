@@ -13,12 +13,12 @@ import java.util.ArrayList;
 @Builder
 
 public class CourseDTO {
-    private String course_id;
+    private String courseId;
     private String course_name;
     private String duration;
     private double fee;
     private String description;
-    private String instructor_id;
+    private String instructorId;
     @Builder.Default
     private ArrayList<StudentCourseDetailsDTO> studentCourseDetails = new ArrayList<>();
     @Builder.Default
