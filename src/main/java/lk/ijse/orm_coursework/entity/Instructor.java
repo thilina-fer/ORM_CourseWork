@@ -15,7 +15,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "instructors")
-public class Instructors {
+public class Instructor {
 
     @Id
     @Column

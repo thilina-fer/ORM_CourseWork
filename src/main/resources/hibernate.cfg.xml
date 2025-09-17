@@ -16,7 +16,7 @@
 
         <property name="hibernate.current_session_context_class">thread</property>
 
-        <mapping class="lk.ijse.orm_coursework.entity.Instructor"/>
-        <mapping class="lk.ijse.orm_coursework.entity.User"/>
+<!--        <mapping class="lk.ijse.orm_coursework.entity.Instructor"/>-->
+<!--        <mapping class="lk.ijse.orm_coursework.entity.User"/>-->
     </session-factory>
 </hibernate-configuration>

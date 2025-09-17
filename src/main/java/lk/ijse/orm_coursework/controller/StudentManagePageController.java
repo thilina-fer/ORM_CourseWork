@@ -79,7 +79,7 @@ public class StudentManagePageController implements Initializable {
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/interfaces/view/AddStudentPopUp.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
             Parent parent = fxmlLoader.load();
 
             Stage stage = new Stage();
@@ -90,6 +90,10 @@ public class StudentManagePageController implements Initializable {
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
         }
+    }
+
+    public void onClickTable(MouseEvent mouseEvent) {
+        
     }
 
 //    public void btnDeleteOnAAction(ActionEvent actionEvent) {

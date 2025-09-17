@@ -2,12 +2,11 @@ package lk.ijse.orm_coursework.dao.custom.impl;
 
 import lk.ijse.orm_coursework.config.FactoryConfiguration;
 import lk.ijse.orm_coursework.dao.custom.InstructorDAO;
-import lk.ijse.orm_coursework.entity.Instructors;
+import lk.ijse.orm_coursework.entity.Instructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,11 +16,11 @@ public class InstructorDAOImpl implements InstructorDAO {
 
 
     @Override
-    public boolean save(Instructors instructors) throws Exception {
+    public boolean save(Instructor instructor) throws Exception {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.persist(instructors);
+            session.persist(instructor);
             transaction.commit();
             return true;
         }catch (Exception e){
@@ -33,11 +32,11 @@ public class InstructorDAOImpl implements InstructorDAO {
     }
 
     @Override
-    public boolean update(Instructors instructors) throws Exception {
+    public boolean update(Instructor instructor) throws Exception {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.merge(instructors);
+            session.merge(instructor);
             transaction.commit();
             return true;
         }catch (Exception e){
@@ -53,9 +52,9 @@ public class InstructorDAOImpl implements InstructorDAO {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            Instructors instructors = (Instructors) session.get(Instructors.class, id);
-            if (instructors != null) {
-                session.remove(instructors);
+            Instructor instructor = (Instructor) session.get(Instructor.class, id);
+            if (instructor != null) {
+                session.remove(instructor);
                 transaction.commit();
                 return true;
             }
@@ -72,12 +71,12 @@ public class InstructorDAOImpl implements InstructorDAO {
     }
 
     @Override
-    public List<Instructors> getAll() throws Exception {
+    public List<Instructor> getAll() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<Instructors> query = session.createQuery("from Instructors ",Instructors.class);
-            List<Instructors> instructorsList = query.list();
-            return instructorsList;
+            Query<Instructor> query = session.createQuery("from Instructor ", Instructor.class);
+            List<Instructor> instructorList = query.list();
+            return instructorList;
         }finally {
             session.close();
         }
@@ -87,7 +86,7 @@ public class InstructorDAOImpl implements InstructorDAO {
     public String getLastId() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<String> query = session.createQuery("SELECT i.instructor_id FROM Instructors i ORDER BY i.instructor_id DESC", String.class)
+            Query<String> query = session.createQuery("SELECT i.instructor_id FROM Instructor i ORDER BY i.instructor_id DESC", String.class)
                     .setMaxResults(1);
             List<String> instructorsList = query.list();
             if (instructorsList.isEmpty()) {
@@ -104,7 +103,7 @@ public class InstructorDAOImpl implements InstructorDAO {
     public List<String> getAllIds() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<String> query = session.createQuery("SELECT i.instructor_id FROM Instructors i", String.class);
+            Query<String> query = session.createQuery("SELECT i.instructor_id FROM Instructor i", String.class);
             return query.list();
         } finally {
             session.close();
@@ -112,11 +111,11 @@ public class InstructorDAOImpl implements InstructorDAO {
     }
 
     @Override
-    public Optional<Instructors> findById(String id) throws Exception {
+    public Optional<Instructor> findById(String id) throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Instructors instructors = session.get(Instructors.class, id);
-            return Optional.ofNullable(instructors);
+            Instructor instructor = session.get(Instructor.class, id);
+            return Optional.ofNullable(instructor);
         } finally {
             session.close();
         }

@@ -6,7 +6,7 @@ import lk.ijse.orm_coursework.dao.DAOFactory;
 import lk.ijse.orm_coursework.dao.DAOTypes;
 import lk.ijse.orm_coursework.dao.custom.InstructorDAO;
 import lk.ijse.orm_coursework.dto.InstructorDTO;
-import lk.ijse.orm_coursework.entity.Instructors;
+import lk.ijse.orm_coursework.entity.Instructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ public class InstructorBOImpl implements InstructorBO {
 
     @Override
     public List<InstructorDTO> getAllInstructors() throws Exception {
-        List<Instructors> instructors = instructorDAO.getAll();
+        List<Instructor> instructors = instructorDAO.getAll();
         List<InstructorDTO> instructorDTOs = new ArrayList<>();
-        for (Instructors instructor : instructors) {
+        for (Instructor instructor : instructors) {
             instructorDTOs.add(convertor.getInstructorsDTO(instructor));
         }
         return instructorDTOs;
@@ -36,7 +36,7 @@ public class InstructorBOImpl implements InstructorBO {
 
     @Override
     public boolean saveInstructors(InstructorDTO t) throws Exception {
-        Optional<Instructors> instructors = instructorDAO.findById(t.getInstructorId());
+        Optional<Instructor> instructors = instructorDAO.findById(t.getInstructorId());
         if (instructors.isPresent()) {
             throw new Exception("Instructor already exists");
         }
@@ -45,7 +45,7 @@ public class InstructorBOImpl implements InstructorBO {
 
     @Override
     public boolean updateInstructors(InstructorDTO t) throws Exception {
-        Optional<Instructors> instructors = instructorDAO.findById(t.getInstructorId());
+        Optional<Instructor> instructors = instructorDAO.findById(t.getInstructorId());
         if (instructors.isEmpty()) {
             throw new Exception("Instructor Not Found");
         }
@@ -54,7 +54,7 @@ public class InstructorBOImpl implements InstructorBO {
 
     @Override
     public boolean deleteInstructors(String id) throws Exception {
-        Optional<Instructors> instructors = instructorDAO.findById(id);
+        Optional<Instructor> instructors = instructorDAO.findById(id);
         if (instructors.isEmpty()) {
             throw new Exception("Instructor not Found");
         }
@@ -68,7 +68,7 @@ public class InstructorBOImpl implements InstructorBO {
 
     @Override
     public Optional<InstructorDTO> findByInstructorId(String id) throws Exception {
-        Optional<Instructors> instructors = instructorDAO.findById(id);
+        Optional<Instructor> instructors = instructorDAO.findById(id);
         if (instructors.isPresent()) {
             return Optional.of(convertor.getInstructorsDTO(instructors.get()));
         }

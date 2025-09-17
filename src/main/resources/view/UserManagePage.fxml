@@ -17,15 +17,6 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.StudentManagePageController">
     <children>
-        <BorderPane layoutY="-7.0" prefHeight="174.0" prefWidth="1200.0" AnchorPane.bottomAnchor="767.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-51.0">
-            <center>
-                <Label text="Student Details." BorderPane.alignment="CENTER">
-                    <font>
-                        <Font name="Tahoma Bold" size="25.0" />
-                    </font>
-                </Label>
-            </center>
-        </BorderPane>
         <HBox layoutY="110.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="116.0">
             <children>
                 <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);;" text="Add Student" textFill="WHITE">
@@ -70,7 +61,7 @@
             <right>
             <StackPane BorderPane.alignment="CENTER">
                <children>
-                      <ImageView fitHeight="56.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                      <ImageView fitHeight="79.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../images/Green_Black_Professional_Minimal_Motion_Studio_Brand_Logo__2_-removebg-preview.png" />
                           </image>

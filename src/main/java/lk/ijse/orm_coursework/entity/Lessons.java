@@ -32,7 +32,7 @@ public class Lessons {
 
     @ManyToOne
     @JoinColumn(name = "instructorId", referencedColumnName = "instructor_id")
-    private Instructors instructor;
+    private Instructor instructor;
 
     @Column
     private Date lessonDate;
