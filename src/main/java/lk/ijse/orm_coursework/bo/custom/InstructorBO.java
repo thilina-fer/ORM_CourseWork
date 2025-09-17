@@ -8,15 +8,20 @@ import lk.ijse.orm_coursework.dto.StudentDTO;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public interface InstructorBO extends SuperBO {
-    List<InstructorDTO> getAllInstructor() throws SQLException;
+    List<InstructorDTO> getAllInstructors() throws Exception;
 
-    void saveInstructor(InstructorDTO dto) throws DuplicateException, Exception;
+    String getLastInstructorId() throws Exception;
 
-    void updateInstructor(InstructorDTO dto) throws SQLException;
+    boolean saveInstructors(InstructorDTO t) throws Exception;
 
-    boolean deleteInstructor(String id) throws InUseException, Exception;
+    boolean updateInstructors(InstructorDTO t) throws Exception;
 
-    String getNextId() throws SQLException;
+    boolean deleteInstructors(String id) throws Exception;
+
+    List<String> getAllInstructorIds() throws Exception;
+
+    Optional<InstructorDTO> findByInstructorId(String id) throws Exception;
 }
