@@ -26,6 +26,11 @@
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </VBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#btnInstructorOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Instructor">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
       <AnchorPane fx:id="ancDashboard" layoutX="316.0" layoutY="42.0" prefHeight="800.0" prefWidth="884.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

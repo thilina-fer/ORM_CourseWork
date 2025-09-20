@@ -74,4 +74,9 @@ public class InstructorBOImpl implements InstructorBO {
         }
         return Optional.empty();
     }
+
+    @Override
+    public String generateNewInstructorsId() {
+        return instructorDAO.generateNewId();
+    }
 }

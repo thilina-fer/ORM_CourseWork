@@ -25,21 +25,21 @@ import java.util.ResourceBundle;
 
 public class InstructorManagePageController implements Initializable {
     public Button btnAdd;
-    public TableView tblInstructor;
-    public TableColumn colId;
-    public TableColumn colFirstName;
-    public TableColumn colLastName;
-    public TableColumn colEmail;
-    public TableColumn colContact;
-    public TableColumn colSpecialization;
-    public TableColumn colAvailability;
+    public TableView<InstructorTM> tblInstructor;
+    public TableColumn<InstructorTM , String> colId;
+    public TableColumn<InstructorTM , String> colFirstName;
+    public TableColumn<InstructorTM , String> colLastName;
+    public TableColumn<InstructorTM , String> colEmail;
+    public TableColumn<InstructorTM , String> colContact;
+    public TableColumn<InstructorTM , String> colSpecialization;
+    public TableColumn<InstructorTM , String> colAvailability;
 
 
     private final InstructorBO instructorBO = (InstructorBO) BOFactory.getInstance().getBO(BOTypes.INSTRUCTOR);
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/PaymentsManagePOPUpPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/InstructorManagePOPPage.fxml"));
             Parent parent = fxmlLoader.load();
 
             Stage stage = new Stage();
@@ -47,7 +47,10 @@ public class InstructorManagePageController implements Initializable {
             stage.setScene(new Scene(parent));
             stage.initModality(Modality.APPLICATION_MODAL); // Block input to other windows
             stage.showAndWait();
+
+            loadAllInstructors();
         } catch (IOException e) {
+            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
         }
     }
