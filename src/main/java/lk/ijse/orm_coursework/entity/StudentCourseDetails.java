@@ -14,11 +14,11 @@ import java.util.Date;
 @Setter
 
 @Entity
-@Table(name = "student_course_details")
+@Table(name = "studentCourseDetails")
 public class StudentCourseDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private String studentCourseId;
 
@@ -27,7 +27,7 @@ public class StudentCourseDetails {
     private Students student;
 
     @ManyToOne
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    @JoinColumn(name = "courseId", referencedColumnName = "courseId")
     private Course course;
 
     @Column

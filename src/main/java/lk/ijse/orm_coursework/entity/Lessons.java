@@ -27,11 +27,11 @@ public class Lessons {
     private Students student;
 
     @ManyToOne
-    @JoinColumn(name = "courseId", referencedColumnName = "course_id")
+    @JoinColumn(name = "courseId", referencedColumnName = "courseId")
     private Course course;
 
     @ManyToOne
-    @JoinColumn(name = "instructorId", referencedColumnName = "instructor_id")
+    @JoinColumn(name = "instructorId", referencedColumnName = "instructorId")
     private Instructor instructor;
 
     @Column

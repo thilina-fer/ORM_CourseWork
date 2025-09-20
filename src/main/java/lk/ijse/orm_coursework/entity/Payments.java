@@ -22,7 +22,7 @@ public class Payments {
     private String paymentId;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "studentId")
+    @JoinColumn(name = "studentId", referencedColumnName = "studentId")
     private Students student;
 
     @Column

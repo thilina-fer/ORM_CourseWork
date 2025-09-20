@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 
 @Entity
-@Table(name = "students")
+@Table(name = "student")
 public class Students {
 
     @Id
@@ -44,19 +44,19 @@ public class Students {
     private Date registrationDate;
 
     @OneToMany(
-            mappedBy = "students",
+            mappedBy = "student",
             cascade = CascadeType.ALL
     )
     private List<StudentCourseDetails> studentCourseDetails;
 
     @OneToMany(
-            mappedBy = "students",
+            mappedBy = "student",
             cascade = CascadeType.ALL
     )
     private List<Lessons> lessons;
 
     @OneToMany(
-            mappedBy = "students",
+            mappedBy = "student",
             cascade = CascadeType.ALL
     )
     private List<Payments> payments;

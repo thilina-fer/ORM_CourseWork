@@ -6,31 +6,31 @@ import lk.ijse.orm_coursework.entity.*;
 public class EntityDTOConverter {
     public CourseDTO getCourseDTO(Course course){
         CourseDTO dto=new CourseDTO();
-        dto.setCourseId(course.getCourse_id());
+        dto.setCourseId(course.getCourseId());
         dto.setCourse_name(course.getCourse_name());
         dto.setDuration(course.getDuration());
         dto.setFee(course.getFee());
         dto.setDescription(course.getDescription());
-        dto.setInstructorId(course.getInstructor().getInstructor_id());
+        dto.setInstructorId(course.getInstructor().getInstructorId());
         return dto;
     }
 
     public Course getCourseEntity(CourseDTO dto){
         Course course=new Course();
         Instructor instructor =new Instructor();
-        course.setCourse_id(dto.getCourseId());
+        course.setCourseId(dto.getCourseId());
         course.setCourse_name(dto.getCourse_name());
         course.setDuration(dto.getDuration());
         course.setFee(dto.getFee());
         course.setDescription(dto.getDescription());
-        instructor.setInstructor_id(dto.getInstructorId());
+        instructor.setInstructorId(dto.getInstructorId());
         course.setInstructor(instructor);
         return course;
     }
 
     public InstructorDTO getInstructorsDTO(Instructor instructor){
         InstructorDTO dto=new InstructorDTO();
-        dto.setInstructorId(instructor.getInstructor_id());
+        dto.setInstructorId(instructor.getInstructorId());
         dto.setFirstName(instructor.getFirst_name());
         dto.setLastName(instructor.getLast_name());
         dto.setEmail(instructor.getEmail());
@@ -42,7 +42,7 @@ public class EntityDTOConverter {
 
     public Instructor getInstructorsEntity(InstructorDTO dto){
         Instructor instructor =new Instructor();
-        instructor.setInstructor_id(dto.getInstructorId());
+        instructor.setInstructorId(dto.getInstructorId());
         instructor.setFirst_name(dto.getFirstName());
         instructor.setLast_name(dto.getLastName());
         instructor.setEmail(dto.getEmail());
@@ -59,8 +59,8 @@ public class EntityDTOConverter {
         dto.setStartTime(lessons.getStartTime());
         dto.setEndTime(lessons.getEndTime());
         dto.setStudentId(lessons.getStudent().getStudentId());
-        dto.setCourseId(lessons.getCourse().getCourse_id());
-        dto.setInstructorId(lessons.getInstructor().getInstructor_id());
+        dto.setCourseId(lessons.getCourse().getCourseId());
+        dto.setInstructorId(lessons.getInstructor().getInstructorId());
         return dto;
     }
 
@@ -75,9 +75,9 @@ public class EntityDTOConverter {
         lessons.setEndTime(dto.getEndTime());
         student.setStudentId(dto.getStudentId());
         lessons.setStudent(student);
-        course.setCourse_id(dto.getCourseId());
+        course.setCourseId(dto.getCourseId());
         lessons.setCourse(course);
-        instructor.setInstructor_id(dto.getInstructorId());
+        instructor.setInstructorId(dto.getInstructorId());
         lessons.setInstructor(instructor);
         return lessons;
     }
@@ -114,7 +114,7 @@ public class EntityDTOConverter {
         dto.setStatus(studentCourseDetails.getStatus());
         dto.setGrade(studentCourseDetails.getGrade());
         dto.setStudentId(studentCourseDetails.getStudent().getStudentId());
-        dto.setCourseId(studentCourseDetails.getCourse().getCourse_id());
+        dto.setCourseId(studentCourseDetails.getCourse().getCourseId());
         return dto;
     }
 
@@ -128,7 +128,7 @@ public class EntityDTOConverter {
         studentCourseDetails.setGrade(dto.getGrade());
         students.setStudentId(dto.getStudentId());
         studentCourseDetails.setStudent(students);
-        course.setCourse_id(dto.getCourseId());
+        course.setCourseId(dto.getCourseId());
         studentCourseDetails.setCourse(course);
         return studentCourseDetails;
     }

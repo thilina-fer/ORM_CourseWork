@@ -14,12 +14,12 @@ import java.util.List;
 @Setter
 
 @Entity
-@Table(name = "instructors")
+@Table(name = "instructor")
 public class Instructor {
 
     @Id
     @Column
-    private String instructor_id;
+    private String instructorId;
 
     @Column(nullable = false)
     private String first_name;
@@ -40,13 +40,13 @@ public class Instructor {
     private String availability;
 
     @OneToMany(
-            mappedBy = "instructors",
+            mappedBy = "instructor",
             cascade = CascadeType.ALL
     )
     private List<Lessons> lessons;
 
     @OneToMany(
-            mappedBy = "instructors",
+            mappedBy = "instructor",
             cascade = CascadeType.ALL
     )
     private List<Course> courses;

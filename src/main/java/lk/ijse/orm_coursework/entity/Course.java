@@ -19,7 +19,7 @@ public class Course {
 
     @Id
     @Column
-    private String course_id;
+    private String courseId;
 
     @Column(nullable = false)
     private String course_name;
@@ -34,7 +34,7 @@ public class Course {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "instructor_id", referencedColumnName = "instructor_id")
+    @JoinColumn(name = "instructorId", referencedColumnName = "instructorId")
     private Instructor instructor;
 
     @OneToMany(
