@@ -7,17 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.ijse.orm_coursework.bo.BOFactory;
 import lk.ijse.orm_coursework.bo.BOTypes;
 import lk.ijse.orm_coursework.bo.custom.StudentBO;
-//import lk.ijse.orm_coursework.bo.custom.StudentsBO;
 import lk.ijse.orm_coursework.dto.tm.StudentTM;
 
 import java.io.IOException;
@@ -35,6 +32,8 @@ public class StudentManagePageController implements Initializable {
     public TableColumn<StudentTM, String> colAddress;
     public TableColumn<StudentTM, String> colDOB;
     public TableColumn<StudentTM, String> colRegDate;
+    public TableColumn<? , ?> colAction;
+
 
     private final StudentBO studentsBO = (StudentBO) BOFactory.getInstance().getBO(BOTypes.STUDENT);
 
@@ -48,6 +47,7 @@ public class StudentManagePageController implements Initializable {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
         colRegDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("delete"));
 
         try {
             loadAllStudents();
@@ -77,6 +77,21 @@ public class StudentManagePageController implements Initializable {
 
 
 
+//    public void btnAddOnAction(ActionEvent actionEvent) {
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
+//            Parent parent = fxmlLoader.load();
+//
+//            Stage stage = new Stage();
+//            stage.setTitle("Add Student");
+//            stage.setScene(new Scene(parent));
+//            stage.initModality(Modality.APPLICATION_MODAL); // Block input to other windows
+//            stage.showAndWait();
+//        } catch (IOException e) {
+//            new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
+//        }
+//    }
+
     public void btnAddOnAction(ActionEvent actionEvent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
@@ -85,15 +100,17 @@ public class StudentManagePageController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Add Student");
             stage.setScene(new Scene(parent));
-            stage.initModality(Modality.APPLICATION_MODAL); // Block input to other windows
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setResizable(false); // Optional: prevent resizing
             stage.showAndWait();
-        } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
-        }
-    }
 
-    public void onClickTable(MouseEvent mouseEvent) {
-        
+            // Optionally refresh the table after closing the popup
+            loadAllStudents();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to open the popup!\n" + e.getMessage());
+            alert.showAndWait();
+            e.printStackTrace();
+        }
     }
 
 //    public void btnDeleteOnAAction(ActionEvent actionEvent) {
@@ -137,7 +154,7 @@ public class StudentManagePageController implements Initializable {
 //            }
 //
 //            try {
-//                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/interfaces/view/AddStudentPopUp.fxml"));
+//                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
 //                Parent parent = fxmlLoader.load();
 //
 //                StudentPopUpController controller = fxmlLoader.getController();

@@ -1,6 +1,6 @@
 .cur-button {
-    -fx-background-color: #B6CEB4;
-    -fx-text-fill: #fff;
+    -fx-background-color: #dee2e6;
+    -fx-text-fill: gray;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-padding: 10px 10px;
@@ -16,4 +16,5 @@
 .cur-button:hover {
     -fx-background-color: #003459;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 3);
+    -fx-text-fill: #fff;
 }

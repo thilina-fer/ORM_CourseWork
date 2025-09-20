@@ -18,7 +18,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000; -fx-background-radius: 5px; -fx-border-radius: 5px;" HBox.hgrow="ALWAYS">
                      <center>
-                        <Label prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
+                        <Label fx:id="lblStudentId" prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Times New Roman" size="30.0" />
                            </font>
@@ -54,7 +54,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtLastNam" prefHeight="30.0" prefWidth="250.0" promptText="student" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
+                  <TextField fx:id="txtLastName" prefHeight="30.0" prefWidth="250.0" promptText="student" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
                      <HBox.margin>
                         <Insets bottom="5.0" left="20.0" />
                      </HBox.margin>

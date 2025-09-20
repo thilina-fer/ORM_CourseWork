@@ -5,9 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -16,15 +13,6 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.StudentManagePageController">
    <children>
-      <BorderPane layoutY="-7.0" prefHeight="174.0" prefWidth="1200.0" AnchorPane.bottomAnchor="767.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-51.0">
-         <center>
-            <Label text="Student Details." BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Tahoma Bold" size="25.0" />
-               </font>
-            </Label>
-         </center>
-      </BorderPane>
       <HBox layoutY="110.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="116.0">
          <children>
             <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);;" text="Add Student" textFill="WHITE">
@@ -35,11 +23,6 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Button>
-            <TextField prefHeight="35.0" prefWidth="877.0" promptText="search">
-               <HBox.margin>
-                  <Insets left="100.0" />
-               </HBox.margin>
-            </TextField>
          </children>
       </HBox>
       <VBox layoutX="20.0" layoutY="163.0" prefHeight="605.0" prefWidth="1160.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000; -fx-border-width: 3px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0">
@@ -54,7 +37,7 @@
                   <TableColumn fx:id="colAddress" prefWidth="75.0" text="Address" />
                   <TableColumn fx:id="colDOB" prefWidth="75.0" text="DOB" />
                   <TableColumn fx:id="colRegDate" prefWidth="75.0" text="Register Date" />
-                  <TableColumn fx:id="colRegDate1" prefWidth="75.0" text="Action" />
+                  <TableColumn fx:id="colAction" prefWidth="75.0" text="Action" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -62,7 +45,7 @@
             </TableView>
          </children>
       </VBox>
-      <BorderPane prefHeight="109.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-26.0">
+      <BorderPane layoutY="1.0" prefHeight="109.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <center>
             <Label text="Student Details." BorderPane.alignment="CENTER">
                <font>
@@ -70,13 +53,6 @@
                </font>
             </Label>
          </center>
-         <right>
-            <ImageView fitHeight="190.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../images/Green_Black_Professional_Minimal_Motion_Studio_Brand_Logo__2_-removebg-preview.png" />
-               </image>
-            </ImageView>
-         </right>
       </BorderPane>
    </children>
 </AnchorPane>

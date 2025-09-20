@@ -5,12 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 
-
 public class DashboardController {
 
     public AnchorPane ancDashboard;
-
-
 
     void navigateTo(String path) {
         try {
@@ -31,13 +28,5 @@ public class DashboardController {
 
     public void btnStudentOnAction(ActionEvent actionEvent) {
         navigateTo("/view/StudentManagePage.fxml");
-    }
-
-    public void btmInstructorOnAction(ActionEvent actionEvent) {
-        navigateTo("/view/InstructorPage.fxml");
-    }
-
-    public void btnUserOnAction(ActionEvent actionEvent) {
-        navigateTo("/view/UserPage.fxml");
     }
 }
