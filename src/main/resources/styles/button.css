@@ -4,17 +4,17 @@
     -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-padding: 10px 10px;
-    -fx-background-radius: 30px;
-    -fx-border-radius: 30px;
-    -fx-border-color: 003459;
-    -fx-border-width: 5px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #fff;
+    /*-fx-border-width: 5px;*/
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 2);
     -fx-cursor: hand;
     -fx-transition: all 0.3s ease;
 }
 
 .cur-button:hover {
-    -fx-background-color: #003459;
+    -fx-background-color: #086375;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 3);
     -fx-text-fill: #fff;
 }
