@@ -141,4 +141,16 @@ public class InstructorPOPPageController  implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    public void loadData(InstructorDTO dto){
+        lblId.setText(dto.getInstructorId());
+        txtFirstName.setText(dto.getFirstName());
+        txtLastNam.setText(dto.getLastName());
+        txtEmail.setText(dto.getEmail());
+        txtContact.setText(dto.getContact());
+        txtSpecialization.setText(dto.getSpecialization());
+        txtAvailability.setText(dto.getAvailability());
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(false);
+    }
 }
