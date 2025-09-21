@@ -59,6 +59,12 @@
                            </font>
                         </Label>
                      </right>
+                     <left>
+                        <StackPane fx:id="stackPaneComponent" prefHeight="86.0" prefWidth="518.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
                   </BorderPane>
                </children>
             </HBox>

@@ -1,0 +1,56 @@
+/* Base style for all header buttons */
+.header-btn {
+    -fx-text-fill: #2c3e50;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+    -fx-effect: null;
+    -fx-transition: all 0.3s ease; /* Supported in some cases */
+}
+
+.header-btn > Text,
+.header-btn > Text-flow > Text {
+    -fx-fill: #7f8c8d; /* Icon/Text color */
+    -fx-font-size: 15px;
+    -fx-font-family: "System";
+}
+
+/* Hover effect */
+.header-btn:hover {
+    -fx-text-fill: #1a252f;
+    -fx-background-color: #eeeeee;
+}
+
+.header-btn:hover > Text,
+.header-btn:hover > Text-flow > Text {
+    -fx-fill: #34495e;
+}
+
+/* Focus effect */
+.header-btn:focused {
+    -fx-text-fill: #ecf0f1;
+    -fx-background-color: #2c3e50;
+}
+
+.header-btn.active > Text,
+.header-btn:focused > Text,
+.header-btn.active > Text-flow > Text,
+.header-btn:focused > Text-flow > Text {
+    -fx-fill: #ecf0f1;
+}
+
+/* Active class — manually applied in Java code */
+.header-btn.active {
+    -fx-text-fill: #ecf0f1;
+    -fx-background-color: #2c3e50;
+}
+
+.header-btn.icon-only {
+    -fx-padding: 10 10;
+}
+
+.header-btn.icon-only.not-focused:focused {
+    -fx-text-fill: #2c3e50;
+    -fx-background-color: #ecf0f1;
+}

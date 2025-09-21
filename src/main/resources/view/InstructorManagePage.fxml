@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.InstructorManagePageController">
     <children>
-        <HBox layoutY="110.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="116.0">
+        <HBox layoutX="25.0" layoutY="64.0" prefHeight="37.0" prefWidth="1160.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="64.0">
             <children>
                 <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);;" text="Add Instructor" textFill="WHITE">
                     <font>
@@ -25,9 +25,9 @@
                 </Button>
             </children>
         </HBox>
-        <VBox layoutX="20.0" layoutY="163.0" prefHeight="527.0" prefWidth="1160.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000; -fx-border-width: 3px;" AnchorPane.bottomAnchor="103.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0">
+        <VBox layoutX="20.0" layoutY="114.0" prefHeight="590.0" prefWidth="1170.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000; -fx-border-width: 3px;" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="114.0">
          <children>
-            <TableView fx:id="tblInstructor" onMouseClicked="#onClickTable" prefHeight="595.0" prefWidth="1154.0" stylesheets="@../styles/tableView.css">
+            <TableView fx:id="tblInstructor" onMouseClicked="#onClickTable" prefHeight="584.0" prefWidth="1164.0" stylesheets="@../styles/tableView.css">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="75.0" text="Instructor Id" />
                   <TableColumn fx:id="colFirstName" prefWidth="75.0" text="First name" />
@@ -43,32 +43,17 @@
             </TableView>
          </children>
         </VBox>
-      <HBox prefHeight="117.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="1200.0">
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10px; -fx-background-color: #dee2e6;" HBox.hgrow="ALWAYS">
+            <BorderPane prefHeight="109.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <center>
-                  <Label text="Instructor Details" BorderPane.alignment="CENTER">
+                  <Label text="Instructor Details." BorderPane.alignment="CENTER">
                      <font>
-                        <Font name="Bookman Old Style Bold" size="32.0" />
+                        <Font name="Tahoma Bold" size="25.0" />
                      </font>
                   </Label>
                </center>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
             </BorderPane>
-         </children>
-      </HBox>
-      <HBox layoutX="14.0" layoutY="706.0" prefHeight="37.0" prefWidth="1160.0">
-         <children>
-            <Button fx:id="btnAdd1" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to right, #e52d27, #b31217);;" text="Delete" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Button>
          </children>
       </HBox>
     </children>

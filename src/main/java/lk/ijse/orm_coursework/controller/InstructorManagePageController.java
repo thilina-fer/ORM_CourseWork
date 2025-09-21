@@ -17,7 +17,6 @@ import lk.ijse.orm_coursework.bo.BOTypes;
 import lk.ijse.orm_coursework.bo.custom.InstructorBO;
 import lk.ijse.orm_coursework.dto.InstructorDTO;
 import lk.ijse.orm_coursework.dto.tm.InstructorTM;
-import lk.ijse.orm_coursework.dto.tm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;

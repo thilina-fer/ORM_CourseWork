@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.jfoenix.controls.Button?>-->
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER_LEFT" spacing="20.0" stylesheets="@../styles/B.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.BreadcrumbController">
+    <children>
+        <Button fx:id="btnBack" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-text-fill: #2c3e50;">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/icons/arrow-right.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <styleClass>
+                <String fx:value="header-btn" />
+                <String fx:value="icon-only" />
+                <String fx:value="not-focused" />
+            </styleClass>
+        </Button>
+        <Label fx:id="txtBreadcrumbTitle" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="My Profile" />
+        <HBox alignment="CENTER" spacing="10.0">
+            <children>
+                <Label fx:id="txtNowDate" style="-fx-text-fill: #7f8c8d;" text=". . ." />
+            </children>
+        </HBox>
+    </children>
+</HBox>

@@ -167,35 +167,6 @@ public class StudentManagePageController implements Initializable {
         }
     }
 
-//    public void onClickTable(MouseEvent mouseEvent) {
-//        if (mouseEvent.getClickCount() == 2) {
-//            StudentTM selectedItem = tblStudent.getSelectionModel().getSelectedItem();
-//            if (selectedItem == null) {
-//                new Alert(Alert.AlertType.WARNING, "Please select a student to update!").show();
-//                return;
-//            }
-//
-//            try {
-//                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
-//                Parent parent = fxmlLoader.load();
-//
-//                StudentPopUpController controller = fxmlLoader.getController();
-////                controller.btnUpdateOnAction(selectedItem);
-//
-//                Stage stage = new Stage();
-//                stage.setTitle("Update Student");
-//                stage.setScene(new Scene(parent));
-//                stage.initModality(Modality.APPLICATION_MODAL); // Block input to other windows
-//                stage.showAndWait();
-//
-//                // Refresh the table after the popup is closed
-//                loadAllStudents();
-//            } catch (IOException e) {
-//                new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
-//            }
-//        }
-//    }
-
 
     public void onUpdate(StudentDTO studentDTO) {
         try {
