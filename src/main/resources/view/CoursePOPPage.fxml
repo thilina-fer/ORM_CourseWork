@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #e9edc9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.UserPOPPageController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #e9edc9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.CoursePOPPageController">
     <children>
         <VBox layoutX="76.0" layoutY="58.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff; -fx-background-radius: 8px;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <children>
                 <HBox prefHeight="60.0" prefWidth="379.0">
                     <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000; -fx-background-radius: 5px; -fx-border-radius: 5px;" HBox.hgrow="ALWAYS">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #dee2e6;" HBox.hgrow="ALWAYS">
                             <center>
-                                <Label fx:id="lblId" prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
+                                <Label fx:id="lblCourseId" prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
                                     <font>
                                         <Font name="Times New Roman" size="30.0" />
                                     </font>
@@ -33,12 +33,12 @@
                 </HBox>
                 <HBox prefHeight="29.0" prefWidth="379.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="70.0" text="Username">
+                        <Label prefHeight="30.0" prefWidth="70.0" text="Course name">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtUserName" prefHeight="30.0" prefWidth="250.0" promptText="student" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
+                        <TextField fx:id="txtCourseName" prefHeight="30.0" prefWidth="250.0" promptText="#########" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
                             <HBox.margin>
                                 <Insets bottom="5.0" left="20.0" />
                             </HBox.margin>
@@ -50,58 +50,87 @@
                 </HBox>
                 <HBox prefHeight="29.0" prefWidth="379.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="70.0" text="Password">
+                        <Label prefHeight="30.0" prefWidth="70.0" text="Duration">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtPassword" prefHeight="30.0" prefWidth="250.0" promptText="student@123" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
+                        <TextField fx:id="txtDuration" prefHeight="30.0" prefWidth="250.0" promptText="03 months" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
                             <HBox.margin>
                                 <Insets bottom="5.0" left="20.0" />
                             </HBox.margin>
                         </TextField>
                     </children>
                     <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="20.0" />
                     </VBox.margin>
                 </HBox>
                 <HBox prefHeight="29.0" prefWidth="379.0">
                     <children>
-                        <Label prefHeight="30.0" prefWidth="70.0" text="Role">
+                        <Label prefHeight="30.0" prefWidth="70.0" text="Course Fee">
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
                         </Label>
-                  <ComboBox fx:id="cmbRole" prefHeight="27.0" prefWidth="252.0" style="-fx-background-color: #fff; -fx-border-color: #2a9d8f; -fx-border-width: 0 0 1px 0;">
+                        <TextField fx:id="txtCourseFee" prefHeight="30.0" prefWidth="250.0" promptText="6000.00" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="29.0" prefWidth="379.0">
+                    <children>
+                        <Label prefHeight="30.0" prefWidth="70.0" text="Description">
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="txtDescription" prefHeight="30.0" prefWidth="250.0" promptText="#########################" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="29.0" prefWidth="379.0">
+                    <children>
+                        <Label prefHeight="30.0" prefWidth="70.0" text="Instructor Id">
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Label>
+                  <ComboBox fx:id="cmbInstructorId" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #fff; -fx-border-color: #2a9d8f; -fx-border-width: 0 0 1px 0;">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </ComboBox>
                     </children>
                     <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="20.0" />
                     </VBox.margin>
                 </HBox>
-                <HBox prefHeight="29.0" prefWidth="379.0">
-                    <children>
-                        <Label prefHeight="30.0" prefWidth="70.0" text="Email">
-                            <HBox.margin>
-                                <Insets left="20.0" />
-                            </HBox.margin>
-                        </Label>
-                        <TextField fx:id="txtEmail" prefHeight="30.0" prefWidth="250.0" promptText="student@gmail.com" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
-                            <HBox.margin>
-                                <Insets bottom="5.0" left="20.0" />
-                            </HBox.margin>
-                        </TextField>
-                    </children>
-                    <VBox.margin>
-                        <Insets top="30.0" />
-                    </VBox.margin>
-                </HBox>
+            <HBox prefHeight="29.0" prefWidth="379.0">
+               <children>
+                  <Label fx:id="lblinstructorName" prefHeight="30.0" prefWidth="89.0" text="Instructor name">
+                     <HBox.margin>
+                        <Insets left="270.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </HBox>
                 <HBox prefHeight="34.0" prefWidth="308.0">
                     <VBox.margin>
-                        <Insets left="100.0" right="100.0" top="85.0" />
+                        <Insets left="100.0" right="100.0" top="50.0" />
                     </VBox.margin>
                     <children>
                         <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOncAction" prefHeight="34.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(to right, #B2FEFA, #0ED2F7);" text="Save">
