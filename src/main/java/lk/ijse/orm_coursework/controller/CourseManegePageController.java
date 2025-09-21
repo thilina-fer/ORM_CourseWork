@@ -27,6 +27,7 @@ public class CourseManegePageController {
     public TableColumn<CourseTM , String> colInstructorId;
     public TableColumn<CourseTM , String> colAction;
 
+
     private final CourseBO courseBO = (CourseBO) BOFactory.getInstance().getBO(BOTypes.COURSE);
 
     public void btnAddOnAction(ActionEvent actionEvent) {

@@ -33,4 +33,7 @@ public class DashboardController {
     public void btnInstructorOnAction(ActionEvent actionEvent) {
         navigateTo("/view/InstructorManagePage.fxml");
     }
+
+    public void btnCourseOnAction(ActionEvent actionEvent) {navigateTo("/view/CourseManagePage.fxml");
+    }
 }

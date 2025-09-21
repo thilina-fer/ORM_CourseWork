@@ -1,6 +1,7 @@
 package lk.ijse.orm_coursework.dto.tm;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 
 public class StudentTM {
     private String studentId;
@@ -22,7 +22,7 @@ public class StudentTM {
     private String address;
     private Date dob;
     private Date registrationDate;
-    private Button delete;
+    private Pane action;
 
     public StudentTM(String studentId, String firstName, String lastName, String email, String phone, String address, Date dob, Date registrationDate) {
         this.studentId = studentId;

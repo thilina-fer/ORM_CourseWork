@@ -1,11 +1,12 @@
 package lk.ijse.orm_coursework.bo.custom;
 
+import lk.ijse.orm_coursework.bo.SuperBO;
 import lk.ijse.orm_coursework.dto.CourseDTO;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface CourseBO {
+public interface CourseBO extends SuperBO {
     List<CourseDTO> getAllCourses() throws Exception;
 
     String getLastCourseId() throws Exception;

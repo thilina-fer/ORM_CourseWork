@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import lk.ijse.orm_coursework.bo.BOFactory;
 import lk.ijse.orm_coursework.bo.BOTypes;
 import lk.ijse.orm_coursework.bo.custom.StudentBO;
+import lk.ijse.orm_coursework.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.orm_coursework.dto.StudentDTO;
 
 import java.net.URL;
@@ -160,6 +161,20 @@ public class StudentPopUpController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void loadData(StudentDTO dto)  {
+        lblStudentId.setText(dto.getStudentId());
+        txtFirstName.setText(dto.getFirstName());
+        txtLastName.setText(dto.getLastName());
+        txtEmail.setText(dto.getEmail());
+        txtContact.setText(dto.getPhone());
+        txtAddress.setText(dto.getAddress());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        txtDOB.setText(sdf.format(dto.getDob()));
+        txtRegDate.setText(sdf.format(dto.getRegistrationDate()));
+        btnSave.setDisable(true);
+        btnUpdate.setDisable(false);
     }
 
     @Override
