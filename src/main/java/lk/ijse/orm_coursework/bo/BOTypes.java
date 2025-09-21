@@ -1,5 +1,12 @@
 package lk.ijse.orm_coursework.bo;
 
 public enum BOTypes {
-    STUDENT,INSTRUCTOR,USER
+    COURSE,
+    INSTRUCTOR,
+    LESSONS,
+    PAYMENTS,
+    QUERY,
+    STUDENT_COURSE_DETAILS,
+    STUDENT,
+    USER
 }
