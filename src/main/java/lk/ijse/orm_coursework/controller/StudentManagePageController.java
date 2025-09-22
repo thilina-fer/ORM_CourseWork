@@ -64,7 +64,7 @@ public class StudentManagePageController implements Initializable {
         try {
             tblStudent.setItems(FXCollections.observableArrayList(
                     studentsBO.getAllStudents().stream().map(studentDTO -> {
-                       Pane action = new Pane();
+                        Pane action = new Pane();
                         Button btnEdit = new Button("✏");
                         btnEdit.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
                         btnEdit.setPrefWidth(30);

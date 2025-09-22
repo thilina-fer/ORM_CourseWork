@@ -69,6 +69,11 @@ public class DashboardController implements Initializable {
         loadBreadcrumb(()->{navigateTo("/view/DashbordPage2.fxml");} ,title);
     }
 
+    public void btnUserOnAction(ActionEvent actionEvent) throws IOException {
+        navigateTo("/view/UserManagePage.fxml");
+        backDashboard("User Management");
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -83,4 +88,6 @@ public class DashboardController implements Initializable {
     public void goTOComponents(MouseEvent mouseEvent) {
 
     }
+
+
 }

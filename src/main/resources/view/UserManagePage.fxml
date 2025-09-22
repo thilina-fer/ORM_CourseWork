@@ -36,6 +36,8 @@
                   <TableColumn fx:id="colPassword" prefWidth="75.0" text="Password" />
                   <TableColumn fx:id="colRole" prefWidth="75.0" text="Role" />
                   <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+                  <TableColumn fx:id="colStatus" prefWidth="75.0" text="Status" />
+                  <TableColumn fx:id="colAction" prefWidth="75.0" text="Action" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -5,9 +5,7 @@ import javafx.scene.control.*;
 import lk.ijse.orm_coursework.bo.BOFactory;
 import lk.ijse.orm_coursework.bo.BOTypes;
 import lk.ijse.orm_coursework.bo.custom.StudentBO;
-import lk.ijse.orm_coursework.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.orm_coursework.dto.StudentDTO;
-import lk.ijse.orm_coursework.util.PasswordUtils;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -33,6 +31,7 @@ public class StudentPopUpController implements Initializable {
     public Button btnSave;
     public Button btnUpdate;
     public Label lblStudentId;
+    public ListView listView;
 
     public void btnSaveOncAction(ActionEvent actionEvent) {
 
@@ -183,6 +182,7 @@ public class StudentPopUpController implements Initializable {
         try {
             lblStudentId.setText(studentsBO.generateNewStudentId());
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

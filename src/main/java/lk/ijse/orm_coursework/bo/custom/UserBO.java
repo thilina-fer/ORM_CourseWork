@@ -24,4 +24,6 @@ public interface UserBO extends SuperBO {
     List<String> getAllUserIds() throws Exception;
 
     Optional<UserDTO> findByUserId(String id) throws Exception;
+
+    String generateNextUserId();
 }
