@@ -20,9 +20,7 @@ import lk.ijse.orm_coursework.dto.tm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -36,10 +34,11 @@ public class StudentManagePageController implements Initializable {
     public TableColumn<StudentTM, String> colAddress;
     public TableColumn<StudentTM, String> colDOB;
     public TableColumn<StudentTM, String> colRegDate;
-    public TableColumn<? , ?> colAction;
+    public TableColumn<StudentTM, String> colCourses;
+    public TableColumn<?, ?> colAction;
 
-
-    private final StudentBO studentsBO = (StudentBO) BOFactory.getInstance().getBO(BOTypes.STUDENT);
+    private final StudentBO studentsBO =
+            (StudentBO) BOFactory.getInstance().getBO(BOTypes.STUDENT);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -51,6 +50,7 @@ public class StudentManagePageController implements Initializable {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
         colRegDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
+        colCourses.setCellValueFactory(new PropertyValueFactory<>("courseIds"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
         try {
@@ -65,6 +65,7 @@ public class StudentManagePageController implements Initializable {
             tblStudent.setItems(FXCollections.observableArrayList(
                     studentsBO.getAllStudents().stream().map(studentDTO -> {
                         Pane action = new Pane();
+
                         Button btnEdit = new Button("✏");
                         btnEdit.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
                         btnEdit.setPrefWidth(30);
@@ -80,6 +81,12 @@ public class StudentManagePageController implements Initializable {
                         btnDelete.setOnAction(event -> onDelete(studentDTO.getStudentId()));
 
                         action.getChildren().addAll(btnDelete, btnEdit);
+
+                        // format course list nicely
+                        String courses = (studentDTO.getCourseIds() != null && !studentDTO.getCourseIds().isEmpty())
+                                ? String.join(", ", studentDTO.getCourseIds())
+                                : "No Courses";
+
                         return new StudentTM(
                                 studentDTO.getStudentId(),
                                 studentDTO.getFirstName(),
@@ -89,6 +96,7 @@ public class StudentManagePageController implements Initializable {
                                 studentDTO.getAddress(),
                                 studentDTO.getDob(),
                                 studentDTO.getRegistrationDate(),
+                                Collections.singletonList(courses),
                                 action
                         );
                     }).toList()
@@ -97,23 +105,6 @@ public class StudentManagePageController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-
-
-
-//    public void btnAddOnAction(ActionEvent actionEvent) {
-//        try {
-//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
-//            Parent parent = fxmlLoader.load();
-//
-//            Stage stage = new Stage();
-//            stage.setTitle("Add Student");
-//            stage.setScene(new Scene(parent));
-//            stage.initModality(Modality.APPLICATION_MODAL); // Block input to other windows
-//            stage.showAndWait();
-//        } catch (IOException e) {
-//            new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
-//        }
-//    }h
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         try {
@@ -124,10 +115,10 @@ public class StudentManagePageController implements Initializable {
             stage.setTitle("Add Student");
             stage.setScene(new Scene(parent));
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false); // Optional: prevent resizing
+            stage.setResizable(false);
             stage.showAndWait();
 
-            // Optionally refresh the table after closing the popup
+            // refresh table after closing popup
             loadAllStudents();
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to open the popup!\n" + e.getMessage());
@@ -137,13 +128,13 @@ public class StudentManagePageController implements Initializable {
     }
 
     public void onClickTable(MouseEvent mouseEvent) {
-
+        // Optional: handle row clicks here if needed
     }
 
     public void onDelete(String id) {
         Alert alert = new Alert(
                 Alert.AlertType.CONFIRMATION,
-                "Are you sure whether you want to delete this student?",
+                "Are you sure you want to delete this student?",
                 ButtonType.YES,
                 ButtonType.NO
         );
@@ -152,7 +143,6 @@ public class StudentManagePageController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get() == ButtonType.YES) {
-
             try {
                 boolean isDeleted = studentsBO.deleteStudents(id);
                 if (isDeleted) {
@@ -167,7 +157,6 @@ public class StudentManagePageController implements Initializable {
         }
     }
 
-
     public void onUpdate(StudentDTO studentDTO) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/StudentManagePopPage.fxml"));
@@ -175,19 +164,17 @@ public class StudentManagePageController implements Initializable {
 
             StudentPopUpController controller = fxmlLoader.getController();
             controller.loadData(studentDTO);
-//            controller.btnUpdateOnAction(selectedItem);
 
             Stage stage = new Stage();
             stage.setTitle("Update Student");
             stage.setScene(new Scene(parent));
-            stage.initModality(Modality.APPLICATION_MODAL); // Block input to other windows
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
 
-            // Refresh the table after the popup is closed
+            // refresh after update
             loadAllStudents();
         } catch (IOException e) {
             new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
         }
-
     }
 }

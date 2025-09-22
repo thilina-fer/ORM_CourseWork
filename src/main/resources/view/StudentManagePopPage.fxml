@@ -150,7 +150,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="29.0" prefWidth="379.0">
+            <HBox prefHeight="54.0" prefWidth="379.0">
                <children>
                   <Label prefHeight="30.0" prefWidth="82.0" text="Select Courses">
                      <HBox.margin>
@@ -163,6 +163,9 @@
                      </HBox.margin>
                   </ListView>
                </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
             </HBox>
             <HBox prefHeight="34.0" prefWidth="308.0">
                <VBox.margin>

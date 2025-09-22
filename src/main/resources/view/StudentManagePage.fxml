@@ -35,6 +35,7 @@
                   <TableColumn fx:id="colAddress" prefWidth="75.0" text="Address" />
                   <TableColumn fx:id="colDOB" prefWidth="75.0" text="DOB" />
                   <TableColumn fx:id="colRegDate" prefWidth="75.0" text="Register Date" />
+                  <TableColumn fx:id="colCourses" prefWidth="75.0" text="Courses" />
                   <TableColumn fx:id="colAction" prefWidth="75.0" text="Action" />
                </columns>
                <columnResizePolicy>

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +23,7 @@ public class StudentTM {
     private String address;
     private Date dob;
     private Date registrationDate;
+    private List<String> courseIds;
     private Pane action;
 
     public StudentTM(String studentId, String firstName, String lastName, String email, String phone, String address, Date dob, Date registrationDate) {
