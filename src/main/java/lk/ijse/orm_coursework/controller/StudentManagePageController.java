@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import lk.ijse.orm_coursework.bo.BOFactory;
 import lk.ijse.orm_coursework.bo.BOTypes;
 import lk.ijse.orm_coursework.bo.custom.StudentBO;
+import lk.ijse.orm_coursework.dto.CourseDTO;
 import lk.ijse.orm_coursework.dto.StudentDTO;
 import lk.ijse.orm_coursework.dto.tm.StudentTM;
 
@@ -56,12 +58,14 @@ public class StudentManagePageController implements Initializable {
         try {
             loadAllStudents();
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
 
     private void loadAllStudents() {
         try {
+
             tblStudent.setItems(FXCollections.observableArrayList(
                     studentsBO.getAllStudents().stream().map(studentDTO -> {
                         Pane action = new Pane();
@@ -70,22 +74,26 @@ public class StudentManagePageController implements Initializable {
                         btnEdit.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
                         btnEdit.setPrefWidth(30);
                         btnEdit.setLayoutX(40);
-                        btnEdit.setCursor(javafx.scene.Cursor.HAND);
+                        btnEdit.setCursor(Cursor.HAND);
                         btnEdit.setOnAction(event -> onUpdate(studentDTO));
 
                         Button btnDelete = new Button("🗑");
                         btnDelete.setStyle("-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold;");
                         btnDelete.setPrefWidth(30);
                         btnDelete.setLayoutX(0);
-                        btnDelete.setCursor(javafx.scene.Cursor.HAND);
+                        btnDelete.setCursor(Cursor.HAND);
                         btnDelete.setOnAction(event -> onDelete(studentDTO.getStudentId()));
 
                         action.getChildren().addAll(btnDelete, btnEdit);
 
-                        // format course list nicely
-                        String courses = (studentDTO.getCourseIds() != null && !studentDTO.getCourseIds().isEmpty())
-                                ? String.join(", ", studentDTO.getCourseIds())
-                                : "No Courses";
+                        System.out.println(studentDTO.getCourses());
+
+                        // Store as one string with comma separation
+                        String selectedCourseNamesString =  studentDTO.getCourses() == null ? "" :
+                                String.join(", ", studentDTO.getCourses().stream()
+                                        .map(CourseDTO::getCourse_name)
+                                        .toList());
+
 
                         return new StudentTM(
                                 studentDTO.getStudentId(),
@@ -96,7 +104,7 @@ public class StudentManagePageController implements Initializable {
                                 studentDTO.getAddress(),
                                 studentDTO.getDob(),
                                 studentDTO.getRegistrationDate(),
-                                Collections.singletonList(courses),
+                                selectedCourseNamesString,
                                 action
                         );
                     }).toList()

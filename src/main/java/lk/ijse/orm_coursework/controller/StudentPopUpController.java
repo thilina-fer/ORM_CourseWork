@@ -1,5 +1,6 @@
 package lk.ijse.orm_coursework.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,7 +47,7 @@ public class StudentPopUpController implements Initializable {
     @FXML
     public Label lblStudentId;
     @FXML
-    public ListView<String> listView;   // show course IDs
+    public ListView<CourseDTO> listView;   // show course IDs
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,9 +59,23 @@ public class StudentPopUpController implements Initializable {
 
             // Load courses into ListView
             List<CourseDTO> allCourses = courseBO.getAllCourses();
-            for (CourseDTO course : allCourses) {
-                listView.getItems().add(course.getCourseId()); // show course IDs
-            }
+            ObservableList<CourseDTO> courseObservableList = FXCollections.observableArrayList(allCourses);
+
+            // Bind data into ListView
+            listView.setItems(courseObservableList);
+
+            // Display Course name instead of full object
+            listView.setCellFactory(param -> new javafx.scene.control.ListCell<>() {
+                @Override
+                protected void updateItem(CourseDTO course, boolean empty) {
+                    super.updateItem(course, empty);
+                    if (empty || course == null) {
+                        setText(null);
+                    } else {
+                        setText(course.getCourse_name()); // 👈 Change this to any property you want to display
+                    }
+                }
+            });
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,8 +130,8 @@ public class StudentPopUpController implements Initializable {
         txtRegDate.setText(sdf.format(dto.getRegistrationDate()));
 
         // Pre-select courses in ListView
-        if (dto.getCourseIds() != null) {
-            for (String courseId : dto.getCourseIds()) {
+        if (dto.getCourses() != null) {
+            for (CourseDTO courseId : dto.getCourses()) {
                 listView.getSelectionModel().select(courseId);
             }
         }
@@ -134,6 +149,12 @@ public class StudentPopUpController implements Initializable {
         String address = txtAddress.getText();
         String dob = txtDOB.getText();
         String regDate = txtRegDate.getText();
+        List<CourseDTO> courses = listView.getSelectionModel().getSelectedItems();
+
+        if (courses == null || courses.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please select at least one course", ButtonType.OK).show();
+            return null;
+        }
 
         // Validate input
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || contact.isEmpty()
@@ -163,9 +184,6 @@ public class StudentPopUpController implements Initializable {
             return null;
         }
 
-        // Get selected courses
-        ObservableList<String> selectedCourses = listView.getSelectionModel().getSelectedItems();
-
         return StudentDTO.builder()
                 .studentId(lblStudentId.getText())
                 .firstName(firstName)
@@ -175,7 +193,7 @@ public class StudentPopUpController implements Initializable {
                 .address(address)
                 .dob(dobDate)
                 .registrationDate(regDateDate)
-                .courseIds(new ArrayList<>(selectedCourses)) // add selected course IDs
+                .courses(courses) // add selected course IDs
                 .build();
     }
 }

@@ -74,8 +74,9 @@ public class StudentDAOImpl implements StudentDAO {
     public List<Students> getAll() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<Students> query = session.createQuery("from Students ",Students.class);
+            Query<Students> query = session.createQuery("from Students",Students.class);
             List<Students> studentsList = query.list();
+            System.out.println(studentsList.getFirst().getCourses());
             return studentsList;
         }finally {
             session.close();

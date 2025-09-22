@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.test.TestMultipleSelectController">
+   <children>
+      <ListView fx:id="listView" layoutX="179.0" layoutY="43.0" prefHeight="110.0" prefWidth="200.0" />
+      <Button layoutX="253.0" layoutY="175.0" mnemonicParsing="false" onAction="#onSubmit" text="Button" />
+   </children>
+</AnchorPane>

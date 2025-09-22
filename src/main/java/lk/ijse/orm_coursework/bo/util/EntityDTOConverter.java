@@ -3,6 +3,8 @@ package lk.ijse.orm_coursework.bo.util;
 import lk.ijse.orm_coursework.dto.*;
 import lk.ijse.orm_coursework.entity.*;
 
+import java.util.ArrayList;
+
 public class EntityDTOConverter {
     public CourseDTO getCourseDTO(Course course){
         CourseDTO dto=new CourseDTO();
@@ -143,6 +145,13 @@ public class EntityDTOConverter {
         dto.setAddress(students.getAddress());
         dto.setDob(students.getDob());
         dto.setRegistrationDate(students.getRegistrationDate());
+        dto.setCourses(
+                students.getCourses()
+                        .stream()
+                        .map(this::getCourseDTO) // convert entity → DTO
+                        .toList() // collect into List
+        );
+
         return dto;
     }
 
@@ -156,6 +165,12 @@ public class EntityDTOConverter {
         students.setAddress(dto.getAddress());
         students.setDob(dto.getDob());
         students.setRegistrationDate(dto.getRegistrationDate());
+        students.setCourses(
+                dto.getCourses()
+                        .stream()
+                        .map(this::getCourseEntity) // convert entity → DTO
+                        .toList() // collect into List
+        );
         return students;
     }
 

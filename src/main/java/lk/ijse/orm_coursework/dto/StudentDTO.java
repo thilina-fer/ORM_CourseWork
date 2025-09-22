@@ -23,7 +23,7 @@ public class StudentDTO {
     private String address;
     private Date dob;
     private Date registrationDate;
-    private List<String> courseIds;
+    private List<CourseDTO> courses;
     @Builder.Default
     private ArrayList<StudentCourseDetailsDTO> studentCourseDetails = new ArrayList<>();
     @Builder.Default

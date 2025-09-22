@@ -23,7 +23,7 @@ public class StudentTM {
     private String address;
     private Date dob;
     private Date registrationDate;
-    private List<String> courseIds;
+    private String courseIds;
     private Pane action;
 
     public StudentTM(String studentId, String firstName, String lastName, String email, String phone, String address, Date dob, Date registrationDate) {

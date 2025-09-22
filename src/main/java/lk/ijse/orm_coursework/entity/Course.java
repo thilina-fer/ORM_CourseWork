@@ -1,10 +1,7 @@
 package lk.ijse.orm_coursework.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-
+@ToString
 @Entity
 @Table(name = "course")
 public class Course {
@@ -41,11 +38,13 @@ public class Course {
             mappedBy = "course",
             cascade = CascadeType.ALL
     )
+    @ToString.Exclude
     private List<StudentCourseDetails> studentCourseDetails;
 
     @OneToMany(
             mappedBy = "course",
             cascade = CascadeType.ALL
     )
+    @ToString.Exclude
     private List<Lessons> lessons;
 }
