@@ -5,6 +5,7 @@ module lk.ijse.orm_coursework {
     requires static lombok;
     requires jakarta.persistence;
     requires java.naming;
+    requires jbcrypt;
 
     opens lk.ijse.orm_coursework.config to jakarta.persistence;
     opens lk.ijse.orm_coursework.entity to org.hibernate.orm.core;

@@ -16,6 +16,7 @@ public class UserPageController {
     public TableColumn colEmail;
 
     public void btnAddOnAction(ActionEvent actionEvent) {
+
     }
 
     public void onClickTable(MouseEvent mouseEvent) {
