@@ -25,7 +25,7 @@
         </HBox>
         <VBox layoutX="20.0" layoutY="73.0" prefHeight="605.0" prefWidth="1160.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000; -fx-border-width: 3px;" AnchorPane.bottomAnchor="122.19999999999993" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="73.0">
             <children>
-                <TableView fx:id="tblStudent" onMouseClicked="#onClickTable" prefHeight="598.0" prefWidth="1154.0" stylesheets="@../styles/tableView.css">
+                <TableView fx:id="tblCourse" onMouseClicked="#onClickTable" prefHeight="598.0" prefWidth="1154.0" stylesheets="@../styles/tableView.css">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="75.0" text="Course Id" />
                         <TableColumn fx:id="colCourseName" prefWidth="75.0" text="name" />

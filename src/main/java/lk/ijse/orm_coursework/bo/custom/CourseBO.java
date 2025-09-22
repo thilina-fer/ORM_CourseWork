@@ -20,4 +20,7 @@ public interface CourseBO extends SuperBO {
     List<String> getAllCourseIds() throws Exception;
 
     Optional<CourseDTO> findByCourseId(String id) throws Exception;
+
+    String generateNewCourseId();
+
 }

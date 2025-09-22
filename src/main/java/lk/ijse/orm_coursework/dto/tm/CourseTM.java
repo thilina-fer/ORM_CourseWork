@@ -1,5 +1,6 @@
 package lk.ijse.orm_coursework.dto.tm;
 
+import javafx.scene.layout.Pane;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,5 @@ public class CourseTM {
     private double fee;
     private String description;
     private String instructorId;
+    private Pane action;
 }

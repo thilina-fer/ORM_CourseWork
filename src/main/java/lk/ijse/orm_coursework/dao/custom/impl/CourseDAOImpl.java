@@ -29,7 +29,7 @@ public class CourseDAOImpl implements CourseDAO {
     public String getLastId() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<String> query = session.createQuery("SELECT c.course_id FROM Course c ORDER BY c.course_id DESC", String.class)
+            Query<String> query = session.createQuery("SELECT c.courseId FROM Course c ORDER BY c.courseId DESC", String.class)
                     .setMaxResults(1);
             List<String> courseIdList = query.list();
             if (courseIdList.isEmpty()) {
@@ -100,7 +100,7 @@ public class CourseDAOImpl implements CourseDAO {
     public List<String> getAllIds() throws Exception {
         Session session = factoryConfiguration.getSession();
         try {
-            Query<String> query = session.createQuery("SELECT c.course_id FROM Course c", String.class);
+            Query<String> query = session.createQuery("SELECT c.courseId FROM Course c", String.class);
             return query.list();
         } finally {
             session.close();

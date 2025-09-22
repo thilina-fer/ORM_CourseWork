@@ -73,4 +73,9 @@ public class CourseBOImpl implements CourseBO {
         }
         return Optional.empty();
     }
+
+    @Override
+    public String generateNewCourseId() {
+        return courseDAO.generateNewId();
+    }
 }

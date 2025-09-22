@@ -118,7 +118,7 @@
                 </HBox>
             <HBox prefHeight="29.0" prefWidth="379.0">
                <children>
-                  <Label fx:id="lblinstructorName" prefHeight="30.0" prefWidth="89.0" text="Instructor name">
+                  <Label fx:id="instructorName" prefHeight="30.0" prefWidth="89.0" text="Instructor name">
                      <HBox.margin>
                         <Insets left="270.0" />
                      </HBox.margin>
