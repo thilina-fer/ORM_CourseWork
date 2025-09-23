@@ -175,6 +175,9 @@ public class EntityDTOConverter {
     }
 
     public UserDTO getUserDTO(User user){
+        if (user==null){
+            return null;
+        }
         UserDTO dto=new UserDTO();
         dto.setUserId(user.getUserId());
         dto.setUsername(user.getUserName());

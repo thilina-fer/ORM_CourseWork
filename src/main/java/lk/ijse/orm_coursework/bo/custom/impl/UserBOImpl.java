@@ -82,4 +82,10 @@ public class UserBOImpl implements UserBO {
     public String generateNextUserId() {
         return userDAO.generateNewId();
     }
+
+    @Override
+    public UserDTO getUserByEmail(String email) {
+        User user = userDAO.getUserByEmail(email);
+        return converter.getUserDTO(user);
+    }
 }

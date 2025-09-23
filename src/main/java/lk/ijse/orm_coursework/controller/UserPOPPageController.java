@@ -120,7 +120,7 @@ public class UserPOPPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             lblId.setText(userBO.generateNextUserId());
-            cmbRole.setItems(FXCollections.observableArrayList("Admin", "Receptionist"));
+            cmbRole.setItems(FXCollections.observableArrayList("Admin", "User"));
         }catch (Exception e){
             e.printStackTrace();
             throw new RuntimeException(e);

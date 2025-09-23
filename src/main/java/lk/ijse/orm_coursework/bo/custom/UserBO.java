@@ -5,6 +5,9 @@ import lk.ijse.orm_coursework.bo.exception.DuplicateException;
 import lk.ijse.orm_coursework.bo.exception.InUseException;
 import lk.ijse.orm_coursework.dto.StudentDTO;
 import lk.ijse.orm_coursework.dto.UserDTO;
+import lk.ijse.orm_coursework.entity.User;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -26,4 +29,6 @@ public interface UserBO extends SuperBO {
     Optional<UserDTO> findByUserId(String id) throws Exception;
 
     String generateNextUserId();
+
+    public UserDTO getUserByEmail(String email) ;
 }

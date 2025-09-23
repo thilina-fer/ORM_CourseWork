@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_coursework.controller.LoginPageController">
    <children>
       <HBox layoutX="76.0" layoutY="91.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -91,7 +90,7 @@
                                           <Insets left="20.0" right="100.0" />
                                        </VBox.margin>
                                     </PasswordField>
-                                    <Label fx:id="lblshowPassword" onMouseClicked="#onClickedShowPassword" text="Show password" textAlignment="RIGHT">
+                                    <Label fx:id="lblshowPassword" text="Show password" textAlignment="RIGHT">
                                        <font>
                                           <Font name="Times New Roman" size="11.0" />
                                        </font>

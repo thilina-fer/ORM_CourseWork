@@ -5,9 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import lk.ijse.orm_coursework.dto.Role;
+import lk.ijse.orm_coursework.util.AuthUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +20,8 @@ public class DashboardController implements Initializable {
 
     public AnchorPane ancDashboard;
     public StackPane stackPaneComponent;
+    public Button btnUser;
+    public Button btnCourse;
 
     void navigateTo(String path) {
         try {
@@ -78,6 +83,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/DashbordPage2.fxml");
+        restrictions();
         try {
             loadBreadcrumb(null ,"Dashboard");
         } catch (IOException e) {
@@ -85,9 +91,14 @@ public class DashboardController implements Initializable {
         }
     }
 
-    public void goTOComponents(MouseEvent mouseEvent) {
 
+    public void restrictions(){
+        if (AuthUtil.getRole().equalsIgnoreCase(String.valueOf(Role.USER))) {
+            btnCourse.setVisible(false);
+            btnUser.setVisible(false);
+        }
     }
+
 
 
 }

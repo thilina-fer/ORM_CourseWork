@@ -144,4 +144,14 @@ public class UserDAOImpl implements UserDAO {
             return String.format("U-%03d", num);
         }
     }
+    public User getUserByEmail(String email){
+        Session session = factoryConfiguration.getSession();
+        try {
+            Query<User> query = session.createQuery("FROM User u WHERE u.email = :email", User.class);
+            query.setParameter("email", email);
+            return query.uniqueResult();
+        } finally {
+            session.close();
+        }
+    }
 }
