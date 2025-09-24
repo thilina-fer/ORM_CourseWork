@@ -1,5 +1,6 @@
 package lk.ijse.orm_coursework.dto.tm;
 
+import javafx.scene.layout.Pane;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,7 @@ public class PaymentsTM {
     private String paymentMethod;
     private String status;
     private String studentId;
+    private Pane action;
+
 
 }

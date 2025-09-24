@@ -76,7 +76,46 @@ public class PaymentPOPPageController implements Initializable {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        String paymentId = lblPaymentId.getText();
+        String paymentDate = txtPaymentDate.getText();
+        double amount = Double.parseDouble(lblAmount.getText());
+        String paymentMethod = String.valueOf(cmbPaymentMethod.getValue());
+        String status = txtStatus.getText();
+        String studentId = cmbStudentId.getValue().toString();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = sdf.parse(paymentDate);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        if (paymentId.isEmpty() || paymentDate.isEmpty() || lblAmount.getText().isEmpty() || paymentMethod.isEmpty() || status.isEmpty()|| studentId.isEmpty()) {
+            btnSave.setDisable(true);
+            btnUpdate.setDisable(true);
+            new Alert(Alert.AlertType.ERROR, "Please fill all the fields").show();
+            return;
+        }
+
+        try {
+            boolean isSaved = paymentsBO.updatePayments(new PaymentsDTO(
+                    paymentId,
+                    date,
+                    amount,
+                    paymentMethod,
+                    status,
+                    studentId
+            ));
+
+            if (isSaved) {
+                new Alert(Alert.AlertType.INFORMATION, "Payment updated successfully").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Failed to update payment").show();
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -105,4 +144,12 @@ public class PaymentPOPPageController implements Initializable {
         }
     }
 
+    public void loadData(PaymentsDTO paymentsDTO) {
+        lblPaymentId.setText(paymentsDTO.getPaymentId());
+        txtPaymentDate.setText(String.valueOf(paymentsDTO.getPaymentDate()));
+        lblAmount.setText(String.valueOf(paymentsDTO.getAmount()));
+        cmbPaymentMethod.setValue(paymentsDTO.getPaymentMethod());
+        txtStatus.setText(paymentsDTO.getStatus());
+        cmbStudentId.setValue(paymentsDTO.getStudentId());
+    }
 }
