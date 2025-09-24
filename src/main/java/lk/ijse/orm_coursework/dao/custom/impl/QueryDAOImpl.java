@@ -3,6 +3,7 @@ package lk.ijse.orm_coursework.dao.custom.impl;
 import lk.ijse.orm_coursework.config.FactoryConfiguration;
 import lk.ijse.orm_coursework.dao.custom.QueryDAO;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 
@@ -25,4 +26,22 @@ public class QueryDAOImpl implements QueryDAO {
             session.close();
         }
     }
+
+    @Override
+    public double getTotalCourseAmountByStudentId(String studentId) throws Exception {
+        double total = 0.0;
+        try (Session session = factoryConfiguration.getSession()) {
+            Transaction tx = session.beginTransaction();
+            String hql = "SELECT SUM(c.fee) FROM Students s JOIN s.courses c WHERE s.studentId = :studentId";
+            Query<Double> query = session.createQuery(hql, Double.class);
+            query.setParameter("studentId", studentId);
+            Double result = query.uniqueResult();
+            if (result != null) {
+                total = result;
+            }
+            tx.commit();
+        }
+        return total;
+    }
+
 }
