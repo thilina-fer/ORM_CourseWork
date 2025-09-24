@@ -1,11 +1,12 @@
 package lk.ijse.orm_coursework.bo.custom;
 
+import lk.ijse.orm_coursework.bo.SuperBO;
 import lk.ijse.orm_coursework.dto.PaymentsDTO;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface PaymentsBO {
+public interface PaymentsBO extends SuperBO {
     List<PaymentsDTO> getAllPayments() throws Exception;
 
     String getLastPaymentId() throws Exception;

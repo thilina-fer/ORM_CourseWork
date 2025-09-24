@@ -41,7 +41,7 @@
         </HBox>
         <VBox layoutX="20.0" layoutY="163.0" prefHeight="562.0" prefWidth="1160.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #000; -fx-border-width: 3px;" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0">
             <children>
-                <TableView fx:id="tblStudent" onMouseClicked="#onClickTable" prefHeight="674.0" prefWidth="1154.0" stylesheets="@../styles/tableView.css">
+                <TableView fx:id="tblPayment" onMouseClicked="#onClickTable" prefHeight="674.0" prefWidth="1154.0" stylesheets="@../styles/tableView.css">
                     <columns>
                         <TableColumn fx:id="colPaymentId" prefWidth="75.0" text="Payment Id" />
                         <TableColumn fx:id="colPaymentDate" prefWidth="75.0" text="Payment Date" />

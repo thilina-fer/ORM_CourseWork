@@ -22,6 +22,7 @@ public class DashboardController implements Initializable {
     public StackPane stackPaneComponent;
     public Button btnUser;
     public Button btnCourse;
+    public Button btnPayments;
 
     void navigateTo(String path) {
         try {
@@ -89,6 +90,11 @@ public class DashboardController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void btnPaymentOnAction(ActionEvent actionEvent) throws IOException {
+        navigateTo("/view/PaymentsManagePage.fxml");
+        backDashboard("Payment Management");
     }
 
 
