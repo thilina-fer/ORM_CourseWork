@@ -84,7 +84,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/DashbordPage2.fxml");
-//        restrictions();
+        restrictions();
         try {
             loadBreadcrumb(null ,"Dashboard");
         } catch (IOException e) {
@@ -98,12 +98,12 @@ public class DashboardController implements Initializable {
     }
 
 
-//    public void restrictions(){
-//        if (AuthUtil.getRole().equalsIgnoreCase(String.valueOf(Role.USER))) {
-//            btnCourse.setVisible(false);
-//            btnUser.setVisible(false);
-//        }
-//    }
+    public void restrictions(){
+        if (AuthUtil.getRole().equalsIgnoreCase(String.valueOf(Role.USER))) {
+            btnCourse.setVisible(false);
+            btnUser.setVisible(false);
+        }
+    }
 
 
 
