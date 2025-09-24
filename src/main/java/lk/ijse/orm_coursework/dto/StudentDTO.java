@@ -24,8 +24,7 @@ public class StudentDTO {
     private Date dob;
     private Date registrationDate;
     private List<CourseDTO> courses;
-    @Builder.Default
-    private ArrayList<StudentCourseDetailsDTO> studentCourseDetails = new ArrayList<>();
+
     @Builder.Default
     private ArrayList<LessonsDTO> lessons =new ArrayList<>();
     @Builder.Default

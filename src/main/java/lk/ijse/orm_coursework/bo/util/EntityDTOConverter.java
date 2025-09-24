@@ -9,7 +9,7 @@ public class EntityDTOConverter {
     public CourseDTO getCourseDTO(Course course){
         CourseDTO dto=new CourseDTO();
         dto.setCourseId(course.getCourseId());
-        dto.setCourse_name(course.getCourse_name());
+        dto.setCourse_name(course.getCourseName());
         dto.setDuration(course.getDuration());
         dto.setFee(course.getFee());
         dto.setDescription(course.getDescription());
@@ -21,7 +21,7 @@ public class EntityDTOConverter {
         Course course=new Course();
         Instructor instructor =new Instructor();
         course.setCourseId(dto.getCourseId());
-        course.setCourse_name(dto.getCourse_name());
+        course.setCourseName(dto.getCourse_name());
         course.setDuration(dto.getDuration());
         course.setFee(dto.getFee());
         course.setDescription(dto.getDescription());
@@ -33,8 +33,8 @@ public class EntityDTOConverter {
     public InstructorDTO getInstructorsDTO(Instructor instructor){
         InstructorDTO dto=new InstructorDTO();
         dto.setInstructorId(instructor.getInstructorId());
-        dto.setFirstName(instructor.getFirst_name());
-        dto.setLastName(instructor.getLast_name());
+        dto.setFirstName(instructor.getFirstname());
+        dto.setLastName(instructor.getLastname());
         dto.setEmail(instructor.getEmail());
         dto.setContact(instructor.getPhone());
         dto.setSpecialization(instructor.getSpecialization());
@@ -45,8 +45,8 @@ public class EntityDTOConverter {
     public Instructor getInstructorsEntity(InstructorDTO dto){
         Instructor instructor =new Instructor();
         instructor.setInstructorId(dto.getInstructorId());
-        instructor.setFirst_name(dto.getFirstName());
-        instructor.setLast_name(dto.getLastName());
+        instructor.setFirstname(dto.getFirstName());
+        instructor.setLastname(dto.getLastName());
         instructor.setEmail(dto.getEmail());
         instructor.setPhone(dto.getContact());
         instructor.setSpecialization(dto.getSpecialization());
@@ -109,31 +109,6 @@ public class EntityDTOConverter {
         return payments;
     }
 
-    public StudentCourseDetailsDTO getStudentCourseDetailsDTO(StudentCourseDetails studentCourseDetails){
-        StudentCourseDetailsDTO dto=new StudentCourseDetailsDTO();
-        dto.setStudentCourseId(studentCourseDetails.getStudentCourseId());
-        dto.setEnrollmentDate(studentCourseDetails.getEnrollmentDate());
-        dto.setStatus(studentCourseDetails.getStatus());
-        dto.setGrade(studentCourseDetails.getGrade());
-        dto.setStudentId(studentCourseDetails.getStudent().getStudentId());
-        dto.setCourseId(studentCourseDetails.getCourse().getCourseId());
-        return dto;
-    }
-
-    public StudentCourseDetails getStudentCourseDetailsEntity(StudentCourseDetailsDTO dto){
-        StudentCourseDetails studentCourseDetails=new StudentCourseDetails();
-        Students students=new Students();
-        Course course=new Course();
-        studentCourseDetails.setStudentCourseId(dto.getStudentCourseId());
-        studentCourseDetails.setEnrollmentDate(dto.getEnrollmentDate());
-        studentCourseDetails.setStatus(dto.getStatus());
-        studentCourseDetails.setGrade(dto.getGrade());
-        students.setStudentId(dto.getStudentId());
-        studentCourseDetails.setStudent(students);
-        course.setCourseId(dto.getCourseId());
-        studentCourseDetails.setCourse(course);
-        return studentCourseDetails;
-    }
 
     public StudentDTO getStudentsDTO(Students students){
         StudentDTO dto=new StudentDTO();

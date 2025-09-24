@@ -49,13 +49,6 @@ public class Students {
     @ToString.Exclude
     private List<Course> courses ;
 
-    @OneToMany(
-            mappedBy = "student",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
-    )
-    @ToString.Exclude
-    private List<StudentCourseDetails> studentCourseDetails;
 
     @OneToMany(
             mappedBy = "student",

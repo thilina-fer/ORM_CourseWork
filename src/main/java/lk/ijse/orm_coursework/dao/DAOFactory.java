@@ -22,8 +22,6 @@ public class DAOFactory {
 
             case PAYMENTS ->   (T) new PaymentsDAOImpl();
 
-            case STUDENT_COURSE_DETAILS ->  (T) new StudentCourseDetailsDAOImpl();
-
             case STUDENTS -> (T) new StudentDAOImpl();
 
             case USER -> (T) new UserDAOImpl();

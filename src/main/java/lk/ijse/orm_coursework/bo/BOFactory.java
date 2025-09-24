@@ -19,7 +19,6 @@ public class BOFactory {
             case  LESSONS -> (Hello) new LessonsBOImpl();
             case PAYMENTS ->  (Hello) new PaymentsBOImpl();
             case QUERY ->   (Hello) new QueryBOImpl();
-            case STUDENT_COURSE_DETAILS -> (Hello) new StudentCourseDetailBOImpl();
             case STUDENT -> (Hello) new StudentBOImpl();
             case USER -> (Hello) new UserBOImpl();
 

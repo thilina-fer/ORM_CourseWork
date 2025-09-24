@@ -76,7 +76,7 @@ public class StudentDAOImpl implements StudentDAO {
         try {
             Query<Students> query = session.createQuery("from Students",Students.class);
             List<Students> studentsList = query.list();
-            System.out.println(studentsList.getFirst().getCourses());
+//            System.out.println(studentsList.getFirst().getCourses());
             return studentsList;
         }finally {
             session.close();

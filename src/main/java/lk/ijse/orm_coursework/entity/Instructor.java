@@ -1,36 +1,32 @@
 package lk.ijse.orm_coursework.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-
+@ToString
 @Entity
 @Table(name = "instructor")
 public class Instructor {
 
     @Id
-    @Column
+    @Column(name = "instructorId", length = 50) // force Hibernate to create PK properly
     private String instructorId;
 
     @Column(nullable = false)
-    private String first_name;
+    private String firstname;
 
     @Column(nullable = false)
-    private String last_name;
+    private String lastname;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false,unique = true,length = 15)
+    @Column(unique = true, nullable = false, length = 15)
     private String phone;
 
     @Column(nullable = false)
@@ -39,15 +35,11 @@ public class Instructor {
     @Column(nullable = false)
     private String availability;
 
-    @OneToMany(
-            mappedBy = "instructor",
-            cascade = CascadeType.ALL
-    )
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private List<Lessons> lessons;
 
-    @OneToMany(
-            mappedBy = "instructor",
-            cascade = CascadeType.ALL
-    )
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private List<Course> courses;
 }
