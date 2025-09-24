@@ -19,7 +19,7 @@
                     <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000; -fx-background-radius: 5px; -fx-border-radius: 5px;" HBox.hgrow="ALWAYS">
                             <center>
-                                <Label fx:id="lblId" prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
+                                <Label fx:id="lblPaymentId" prefHeight="60.0" prefWidth="98.0" text="  0001" BorderPane.alignment="CENTER">
                                     <font>
                                         <Font name="Times New Roman" size="30.0" />
                                     </font>
@@ -55,11 +55,11 @@
                                 <Insets left="20.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtAmount" prefHeight="30.0" prefWidth="250.0" promptText="2000.00" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
-                            <HBox.margin>
-                                <Insets bottom="5.0" left="20.0" />
-                            </HBox.margin>
-                        </TextField>
+                  <Label fx:id="lblAmount" prefHeight="30.0" prefWidth="298.0">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
                     </children>
                     <VBox.margin>
                         <Insets top="30.0" />
@@ -106,11 +106,11 @@
                                 <Insets left="20.0" />
                             </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtStudentId" prefHeight="30.0" prefWidth="250.0" promptText="S001" style="-fx-background-color: #fff; -fx-border-width: 0 0 1px 0; -fx-border-color: #2a9d8f;">
-                            <HBox.margin>
-                                <Insets bottom="5.0" left="20.0" />
-                            </HBox.margin>
-                        </TextField>
+                  <ComboBox fx:id="cmbStudentId" prefHeight="26.0" prefWidth="254.0" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
                     </children>
                     <VBox.margin>
                         <Insets top="30.0" />
