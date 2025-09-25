@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import lk.ijse.orm_coursework.AppInitializer;
 import lk.ijse.orm_coursework.dto.Role;
 import lk.ijse.orm_coursework.util.AuthUtil;
 
@@ -23,6 +24,8 @@ public class DashboardController implements Initializable {
     public Button btnUser;
     public Button btnCourse;
     public Button btnPayments;
+    public Button btnLessons;
+    public Button btnInstructor;
 
     void navigateTo(String path) {
         try {
@@ -97,14 +100,23 @@ public class DashboardController implements Initializable {
         backDashboard("Payment Management");
     }
 
+    public void btnLessonOnAction(ActionEvent actionEvent) throws IOException {
+        navigateTo("/view/LessonsManagePage.fxml");
+        backDashboard("Lessons Management");
+    }
+
 
     public void restrictions(){
         if (AuthUtil.getRole().equalsIgnoreCase(String.valueOf(Role.USER))) {
             btnCourse.setVisible(false);
             btnUser.setVisible(false);
+            btnInstructor.setVisible(false);
         }
     }
 
 
-
+    public void btnLogOutOnAction(ActionEvent actionEvent) throws IOException {
+        AuthUtil.clear();
+        AppInitializer.navigateLogin();
+    }
 }

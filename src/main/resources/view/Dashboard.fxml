@@ -35,14 +35,9 @@
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btnInstructorOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Instructor">
+            <Button fx:id="btnLessons" mnemonicParsing="false" onAction="#btnLessonOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Lessons">
                <VBox.margin>
-                  <Insets left="50.0" right="50.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="btnCourse" mnemonicParsing="false" onAction="#btnCourseOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Course">
-               <VBox.margin>
-                  <Insets left="50.0" right="50.0" top="50.0" />
+                  <Insets left="50.0" />
                </VBox.margin>
             </Button>
             <Button fx:id="btnPayments" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Payments">
@@ -50,9 +45,24 @@
                   <Insets left="50.0" top="50.0" />
                </VBox.margin>
             </Button>
+            <Button fx:id="btnInstructor" mnemonicParsing="false" onAction="#btnInstructorOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Instructor">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnCourse" mnemonicParsing="false" onAction="#btnCourseOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Course">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="btnUser" mnemonicParsing="false" onAction="#btnUserOnAction" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="User">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="200.0" styleClass="cur-button" stylesheets="@../styles/button.css" text="Log out">
+               <VBox.margin>
+                  <Insets left="50.0" top="50.0" />
                </VBox.margin>
             </Button>
          </children>

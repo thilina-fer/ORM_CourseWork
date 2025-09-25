@@ -18,8 +18,10 @@ public class LessonsTM {
     private String courseId;
     private String instructorId;
     private Date lessonDate;
-    private Time startTime;
-    private Time endTime;
+    private String startTime;
+    private String endTime;
     private String status;
     private Pane action;
+
+
 }

@@ -4,23 +4,41 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lk.ijse.orm_coursework.config.FactoryConfiguration;
-import org.hibernate.Session;
 
-import static javafx.application.Application.launch;
+import java.io.IOException;
 
 public class AppInitializer extends Application {
+    private static Stage primaryStage;
+
     public static void main(String[] args) {
-       // Session currentSession = FactoryConfiguration.getInstance().getCurrentSession();
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/LoginPage.fxml" ));
+        primaryStage = stage;
+
+        // Start with login page
+        FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/LoginPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
-        stage.show();
         stage.setMaximized(true);
+        stage.show();
+    }
+
+    public static void navigateLogin() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/LoginPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+
+    public static void navigateDashboard() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/Dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
     }
 }

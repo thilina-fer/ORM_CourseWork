@@ -24,6 +24,7 @@ public class LessonsDAOImpl implements LessonsDAO {
             transaction.commit();
             return true;
         }catch (Exception e){
+            e.printStackTrace();
             transaction.rollback();
             return false;
         }finally {

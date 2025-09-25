@@ -157,4 +157,6 @@ public class InstructorManagePageController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Failed to open the popup!").show();
         }
     }
+
+
 }

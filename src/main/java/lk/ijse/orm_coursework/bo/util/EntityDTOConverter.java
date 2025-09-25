@@ -63,6 +63,7 @@ public class EntityDTOConverter {
         dto.setStudentId(lessons.getStudent().getStudentId());
         dto.setCourseId(lessons.getCourse().getCourseId());
         dto.setInstructorId(lessons.getInstructor().getInstructorId());
+        dto.setStatus(lessons.getStatus());
         return dto;
     }
 
@@ -81,6 +82,7 @@ public class EntityDTOConverter {
         lessons.setCourse(course);
         instructor.setInstructorId(dto.getInstructorId());
         lessons.setInstructor(instructor);
+        lessons.setStatus(dto.getStatus());
         return lessons;
     }
 
